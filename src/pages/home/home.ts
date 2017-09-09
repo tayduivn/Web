@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { EventoPage } from '../evento/evento';
+import { InicioPage } from '../inicio/inicio';
 
 
 @Component({
@@ -15,18 +15,8 @@ export class HomePage {
 	
   }
   
-  nextPage(){
-  	this.navCtrl.push(EventoPage);
-  }
-  
-  items = [
-  	'Fiesta de mi mamá',
-  	'Peda del Sábado',
-  	'Noche de Amigos'
-  ];
-  
-  itemSelected(item: string){
-  	console.log("Selected Item", item);
+  login(){
+  	this.navCtrl.push(InicioPage);
   }
 
 }

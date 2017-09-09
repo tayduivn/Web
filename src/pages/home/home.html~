@@ -1,17 +1,9 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>Eventos</ion-title>
-  </ion-navbar>
-</ion-header>
+<div id="container">
+	<h1>Retromanía</h1>
+	<img src="https://vignette2.wikia.nocookie.net/clubpenguin/images/1/1c/Micr%C3%B3fono_icono.png/revision/latest?cb=20140705014018&path-prefix=es" alt="">
+	<button (click)="login();">
+		<ion-icon name="logo-facebook"></ion-icon>
+		Entrar con Facebook
+	</button>
+</div>
 
-<ion-content padding>
-  <h1>Eventos Creados (max 3)</h1>
-  <ion-list inset>
-  	<button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
-  		{{ item }}
-  	</button>
-  </ion-list>
-  
-  
-  <button ion-button full (click)="nextPage();">Nuevo Evento</button>
-</ion-content>

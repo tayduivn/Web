@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Eventos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h1>Eventos Creados (max 3)</h1>
+  <ion-list inset>
+  	<button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
+  		{{ item }}
+  	</button>
+  </ion-list>
+  
+  
+  <button ion-button full (click)="nextPage();">Nuevo Evento</button>
+</ion-content>

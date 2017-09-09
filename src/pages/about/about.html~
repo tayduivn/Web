@@ -139,7 +139,7 @@
 	      </ion-select>
 		</ion-item>
 	</ion-list>
-	<p>Total a pagar: $1000</p>
+	<p>Total a pagar: $1000.00</p>
 	<button ion-button full>Enviar Orden</button>
 
 </ion-content>

@@ -32873,6 +32873,24 @@ ion-navbar.toolbar {
   }
 }
 
+#container {
+  height: 100%;
+  widht: 100%;
+  /* For Safari 5.1 to 6.0 */
+  /* For Opera 11.1 to 12.0 */
+  /* For Firefox 3.6 to 15 */
+  background: -webkit-gradient(linear, left bottom, left top, from(#3c61b0), to(black));
+  background: linear-gradient(to top, #3c61b0, black);
+  /* Standard syntax (must be last) */
+}
+
+#container h1 {
+  font-size: 50px;
+  color: #e175da;
+  padding-top: 50px;
+  align: center;
+}
+
 body {
   cursor: url("http://ionicframework.com/img/finger.png"), auto;
 }
@@ -32893,4 +32911,12 @@ body {
 
 .row:last-child .col {
   border-bottom: solid 1px grey;
+}
+
+page-home {
+  backgroud-color: black;
+}
+
+#container {
+  backgroud-color: black;
 }
