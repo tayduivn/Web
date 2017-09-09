@@ -35,6 +35,6 @@
   <ion-datetime displayFormat="D" [(ngModel)]="myDate"></ion-datetime>
 </ion-item>
 
-
+<button ion-button full (click)="guardar();">Crear Evento</button>
 
 </ion-content>
