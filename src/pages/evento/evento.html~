@@ -1,0 +1,40 @@
+<!--
+  Generated template for the EventoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Nuevo Evento</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+<ion-item>
+  <ion-label>Nombre del Evento</ion-label>
+  <ion-input></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label>Fecha del evento</ion-label>
+  <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+</ion-item>
+
+<ion-item>
+  <ion-label>Hora del evento</ion-label>
+  <ion-datetime displayFormat="HH:mm" [(ngModel)]="myDate"></ion-datetime>
+</ion-item>
+
+<ion-item>
+  <ion-label>Número de personas invitadas</ion-label>
+  <ion-datetime displayFormat="D" [(ngModel)]="myDate"></ion-datetime>
+</ion-item>
+
+
+
+</ion-content>

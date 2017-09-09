@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Eventos</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -12,5 +12,6 @@
   	</button>
   </ion-list>
   
-  <button ion-button full>Nuevo Evento</button>
+  
+  <button ion-button full (click)="nextPage();">Nuevo Evento</button>
 </ion-content>
