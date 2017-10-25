@@ -10,4 +10,4 @@ import { EventoPage } from './evento';
     IonicPageModule.forChild(EventoPage),
   ],
 })
-export class EventoPageModule {}
+export class InicioPageModule {}

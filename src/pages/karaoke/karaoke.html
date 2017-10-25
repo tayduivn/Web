@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Karaoke!!
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <button ion-button full color="verde_spotify">
+  	<ion-icon name="ionic"></ion-icon>
+  	Conectarse a Spotify  	
+  </button>
+  <h1>Selecciona una lista</h1>
+  <ion-list>
+  	<ion-item>
+  		<ion-label>Selecciona PlayList</ion-label>
+  		<ion-select [(ngModel)]="plist">
+  			<ion-option value="p1">Baladas Románticas</ion-option>
+  			<ion-option value="p2">Today's Top Hits</ion-option>
+  			<ion-option value="p3">Éxitos MX</ion-option>
+  			<ion-option value="p4">Boleros Pop</ion-option>
+  			<ion-option value="p5">Rock en Español</ion-option>
+  		</ion-select>
+  	</ion-item>
+  </ion-list>
+  <h1>Selecciona tus canciones</h1>
+  <ion-list>
+	<ion-item>
+      <ion-label>Photograph - Ed Sheeran</ion-label>
+      <ion-checkbox color="primary"></ion-checkbox>
+	</ion-item>
+	
+	<ion-item>
+      <ion-label>You're Beautiful - James Blunt</ion-label>
+      <ion-checkbox color="dark"></ion-checkbox>
+	</ion-item>
+	
+	<ion-item>
+      <ion-label>Llegaste tú - Jesse y Joy</ion-label>
+      <ion-checkbox color="danger"></ion-checkbox>
+	</ion-item>
+	
+	<ion-item>
+      <ion-label>Te Regalo - Carla Morrison</ion-label>
+      <ion-checkbox color="royal"></ion-checkbox>
+	</ion-item>
+	
+	<ion-item>
+      <ion-label>Moonlight - Ariana Grande</ion-label>
+      <ion-checkbox color="energized"></ion-checkbox>
+	</ion-item>
+  </ion-list>
+  
+  <button ion-button round>Enviar Selección</button>
+</ion-content>
