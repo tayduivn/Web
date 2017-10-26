@@ -22,11 +22,11 @@ webpackEmptyAsyncContext.id = 108;
 
 var map = {
 	"../pages/evento/evento.module": [
-		269,
+		270,
 		1
 	],
 	"../pages/nuevoevento/nuevoevento.module": [
-		268,
+		269,
 		0
 	]
 };
@@ -109,19 +109,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var OrdenPage = (function () {
-    function OrdenPage(navCtrl, navParams, _listaDeseos) {
+    function OrdenPage(navCtrl, navParams, _listaOrdenes) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this._listaDeseos = _listaDeseos;
+        this._listaOrdenes = _listaOrdenes;
     }
     OrdenPage.prototype.nextPage = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__bar_bar__["a" /* BarPage */]);
+    };
+    OrdenPage.prototype.itemSelected = function (item) {
+        console.log("Selected Item", item);
     };
     return OrdenPage;
 }());
 OrdenPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-orden',template:/*ion-inline-start:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/orden/orden.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Ordenes</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h1>Comida pedida</h1>\n  <!--<ion-list inset>\n  	<button ion-item *ngFor="let item of items" (click)="itemSelected(item)">\n  		{{ item }}\n  	</button>\n  </ion-list>-->\n\n\n  <button ion-button full (click)="nextPage();">Nueva Orden</button>\n</ion-content>\n'/*ion-inline-end:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/orden/orden.html"*/
+        selector: 'page-orden',template:/*ion-inline-start:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/orden/orden.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Ordenes</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h1>Comida pedida</h1>\n  <ion-list inset *ngFor="let orden of _listaOrdenes.ordenestotales">\n    <a href="" class="botonPersonalizado">{{ orden.nombre }}</a>\n\n  </ion-list>\n<!--\n<button ion-item (click)="itemSelected(item)">\n</button>\n\n  <ul>\n    <li *ngFor="let orden of _listaOrdenes.ordenestotales">\n      {{orden.nombre}}\n    </li>\n  </ul>\n-->\n\n  <button ion-button full (click)="nextPage();">Nueva Orden</button>\n</ion-content>\n'/*ion-inline-end:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/orden/orden.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
         __WEBPACK_IMPORTED_MODULE_3__app_services_listaOrdenes__["a" /* ListaOrdenesService */]])
@@ -176,6 +179,7 @@ BarPage = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListaOrdenesService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__clases_ordenes_clase__ = __webpack_require__(268);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -186,8 +190,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var ListaOrdenesService = (function () {
     function ListaOrdenesService() {
+        this.ordenestotales = [];
+        console.log("Servicio Inicializado");
+        var orden1 = new __WEBPACK_IMPORTED_MODULE_1__clases_ordenes_clase__["a" /* OrdenesClase */]('Pedido 1');
+        var orden2 = new __WEBPACK_IMPORTED_MODULE_1__clases_ordenes_clase__["a" /* OrdenesClase */]('Pedido 2');
+        var orden3 = new __WEBPACK_IMPORTED_MODULE_1__clases_ordenes_clase__["a" /* OrdenesClase */]('Pedido 3');
+        this.ordenestotales.push(orden1);
+        this.ordenestotales.push(orden2);
+        this.ordenestotales.push(orden3);
     }
     return ListaOrdenesService;
 }());
@@ -422,6 +435,22 @@ MyApp = __decorate([
 ], MyApp);
 
 //# sourceMappingURL=app.component.js.map
+
+/***/ }),
+
+/***/ 268:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OrdenesClase; });
+var OrdenesClase = (function () {
+    function OrdenesClase(nombre) {
+        this.nombre = nombre;
+    }
+    return OrdenesClase;
+}());
+
+//# sourceMappingURL=ordenes-clase.js.map
 
 /***/ }),
 

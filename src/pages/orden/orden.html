@@ -6,12 +6,20 @@
 
 <ion-content padding>
   <h1>Comida pedida</h1>
-  <!--<ion-list inset>
-  	<button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
-  		{{ item }}
-  	</button>
-  </ion-list>-->
+  <ion-list inset *ngFor="let orden of _listaOrdenes.ordenestotales">
+    <a href="" class="botonPersonalizado">{{ orden.nombre }}</a>
 
+  </ion-list>
+<!--
+<button ion-item (click)="itemSelected(item)">
+</button>
+
+  <ul>
+    <li *ngFor="let orden of _listaOrdenes.ordenestotales">
+      {{orden.nombre}}
+    </li>
+  </ul>
+-->
 
   <button ion-button full (click)="nextPage();">Nueva Orden</button>
 </ion-content>

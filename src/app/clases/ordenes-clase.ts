@@ -1,6 +1,6 @@
 import { OrdenDetalleClase } from './orden-detalle-clase';
 
-export class Ordenes{
+export class OrdenesClase{
   nombre: string;
   ordenes: OrdenDetalleClase[];
 
