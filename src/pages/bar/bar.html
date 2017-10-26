@@ -6,141 +6,143 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-	<h1>Alimentos</h1>
-	<ion-list>
-		<ion-item>
-	      <ion-label>Chilaquiles Verdes $70</ion-label>
-	      <ion-select [(ngModel)]="chil_ver">
-	        <ion-option value="1">1</ion-option>
-	        <ion-option value="2">2</ion-option>
-	        <ion-option value="3">3</ion-option>
-	        <ion-option value="4">4</ion-option>
-	        <ion-option value="5">5</ion-option>
-	        <ion-option value="6">6</ion-option>
-	        <ion-option value="7">7</ion-option>
-	        <ion-option value="8">8</ion-option>
-	        <ion-option value="9">9</ion-option>
-	        <ion-option value="10">10</ion-option>
-	      </ion-select>
-		</ion-item>
+<div class="container">
+  <ion-content padding>
+  	<h1>Alimentos</h1>
+  	<ion-list>
+  		<ion-item>
+  	      <ion-label>Chilaquiles Verdes $70</ion-label>
+  	      <ion-select [(ngModel)]="chil_ver">
+  	        <ion-option value="1">1</ion-option>
+  	        <ion-option value="2">2</ion-option>
+  	        <ion-option value="3">3</ion-option>
+  	        <ion-option value="4">4</ion-option>
+  	        <ion-option value="5">5</ion-option>
+  	        <ion-option value="6">6</ion-option>
+  	        <ion-option value="7">7</ion-option>
+  	        <ion-option value="8">8</ion-option>
+  	        <ion-option value="9">9</ion-option>
+  	        <ion-option value="10">10</ion-option>
+  	      </ion-select>
+  		</ion-item>
 
-		<ion-item>
-	      <ion-label>Tacos Dorados $67</ion-label>
-	      <ion-select [(ngModel)]="tac_dor">
-	        <ion-option value="1">1</ion-option>
-	        <ion-option value="2">2</ion-option>
-	        <ion-option value="3">3</ion-option>
-	        <ion-option value="4">4</ion-option>
-	        <ion-option value="5">5</ion-option>
-	        <ion-option value="6">6</ion-option>
-	        <ion-option value="7">7</ion-option>
-	        <ion-option value="8">8</ion-option>
-	        <ion-option value="9">9</ion-option>
-	        <ion-option value="10">10</ion-option>
-	      </ion-select>
-		</ion-item>
+  		<ion-item>
+  	      <ion-label>Tacos Dorados $67</ion-label>
+  	      <ion-select [(ngModel)]="tac_dor">
+  	        <ion-option value="1">1</ion-option>
+  	        <ion-option value="2">2</ion-option>
+  	        <ion-option value="3">3</ion-option>
+  	        <ion-option value="4">4</ion-option>
+  	        <ion-option value="5">5</ion-option>
+  	        <ion-option value="6">6</ion-option>
+  	        <ion-option value="7">7</ion-option>
+  	        <ion-option value="8">8</ion-option>
+  	        <ion-option value="9">9</ion-option>
+  	        <ion-option value="10">10</ion-option>
+  	      </ion-select>
+  		</ion-item>
 
-		<ion-item>
-	      <ion-label>Molletes $55</ion-label>
-	      <ion-select [(ngModel)]="moll">
-	        <ion-option value="1">1</ion-option>
-	        <ion-option value="2">2</ion-option>
-	        <ion-option value="3">3</ion-option>
-	        <ion-option value="4">4</ion-option>
-	        <ion-option value="5">5</ion-option>
-	        <ion-option value="6">6</ion-option>
-	        <ion-option value="7">7</ion-option>
-	        <ion-option value="8">8</ion-option>
-	        <ion-option value="9">9</ion-option>
-	        <ion-option value="10">10</ion-option>
-	      </ion-select>
-		</ion-item>
+  		<ion-item>
+  	      <ion-label>Molletes $55</ion-label>
+  	      <ion-select [(ngModel)]="moll">
+  	        <ion-option value="1">1</ion-option>
+  	        <ion-option value="2">2</ion-option>
+  	        <ion-option value="3">3</ion-option>
+  	        <ion-option value="4">4</ion-option>
+  	        <ion-option value="5">5</ion-option>
+  	        <ion-option value="6">6</ion-option>
+  	        <ion-option value="7">7</ion-option>
+  	        <ion-option value="8">8</ion-option>
+  	        <ion-option value="9">9</ion-option>
+  	        <ion-option value="10">10</ion-option>
+  	      </ion-select>
+  		</ion-item>
 
-		<ion-item>
-	      <ion-label>Hamburguesa con Queso $90</ion-label>
-	      <ion-select [(ngModel)]="ham">
-	        <ion-option value="1">1</ion-option>
-	        <ion-option value="2">2</ion-option>
-	        <ion-option value="3">3</ion-option>
-	        <ion-option value="4">4</ion-option>
-	        <ion-option value="5">5</ion-option>
-	        <ion-option value="6">6</ion-option>
-	        <ion-option value="7">7</ion-option>
-	        <ion-option value="8">8</ion-option>
-	        <ion-option value="9">9</ion-option>
-	        <ion-option value="10">10</ion-option>
-	      </ion-select>
-		</ion-item>
-	</ion-list>
-	<h1>Bebidas</h1>
-	<ion-list>
-		<ion-item>
-	      <ion-label>Coca - Cola $27</ion-label>
-	      <ion-select [(ngModel)]="coca">
-	        <ion-option value="1">1</ion-option>
-	        <ion-option value="2">2</ion-option>
-	        <ion-option value="3">3</ion-option>
-	        <ion-option value="4">4</ion-option>
-	        <ion-option value="5">5</ion-option>
-	        <ion-option value="6">6</ion-option>
-	        <ion-option value="7">7</ion-option>
-	        <ion-option value="8">8</ion-option>
-	        <ion-option value="9">9</ion-option>
-	        <ion-option value="10">10</ion-option>
-	      </ion-select>
-		</ion-item>
+  		<ion-item>
+  	      <ion-label>Hamburguesa con Queso $90</ion-label>
+  	      <ion-select [(ngModel)]="ham">
+  	        <ion-option value="1">1</ion-option>
+  	        <ion-option value="2">2</ion-option>
+  	        <ion-option value="3">3</ion-option>
+  	        <ion-option value="4">4</ion-option>
+  	        <ion-option value="5">5</ion-option>
+  	        <ion-option value="6">6</ion-option>
+  	        <ion-option value="7">7</ion-option>
+  	        <ion-option value="8">8</ion-option>
+  	        <ion-option value="9">9</ion-option>
+  	        <ion-option value="10">10</ion-option>
+  	      </ion-select>
+  		</ion-item>
+  	</ion-list>
+  	<h1>Bebidas</h1>
+  	<ion-list>
+  		<ion-item>
+  	      <ion-label>Coca - Cola $27</ion-label>
+  	      <ion-select [(ngModel)]="coca">
+  	        <ion-option value="1">1</ion-option>
+  	        <ion-option value="2">2</ion-option>
+  	        <ion-option value="3">3</ion-option>
+  	        <ion-option value="4">4</ion-option>
+  	        <ion-option value="5">5</ion-option>
+  	        <ion-option value="6">6</ion-option>
+  	        <ion-option value="7">7</ion-option>
+  	        <ion-option value="8">8</ion-option>
+  	        <ion-option value="9">9</ion-option>
+  	        <ion-option value="10">10</ion-option>
+  	      </ion-select>
+  		</ion-item>
 
-		<ion-item>
-	      <ion-label>Naranjada Mineral $30</ion-label>
-	      <ion-select [(ngModel)]="nar">
-	        <ion-option value="1">1</ion-option>
-	        <ion-option value="2">2</ion-option>
-	        <ion-option value="3">3</ion-option>
-	        <ion-option value="4">4</ion-option>
-	        <ion-option value="5">5</ion-option>
-	        <ion-option value="6">6</ion-option>
-	        <ion-option value="7">7</ion-option>
-	        <ion-option value="8">8</ion-option>
-	        <ion-option value="9">9</ion-option>
-	        <ion-option value="10">10</ion-option>
-	      </ion-select>
-		</ion-item>
+  		<ion-item>
+  	      <ion-label>Naranjada Mineral $30</ion-label>
+  	      <ion-select [(ngModel)]="nar">
+  	        <ion-option value="1">1</ion-option>
+  	        <ion-option value="2">2</ion-option>
+  	        <ion-option value="3">3</ion-option>
+  	        <ion-option value="4">4</ion-option>
+  	        <ion-option value="5">5</ion-option>
+  	        <ion-option value="6">6</ion-option>
+  	        <ion-option value="7">7</ion-option>
+  	        <ion-option value="8">8</ion-option>
+  	        <ion-option value="9">9</ion-option>
+  	        <ion-option value="10">10</ion-option>
+  	      </ion-select>
+  		</ion-item>
 
-		<ion-item>
-	      <ion-label>Botella de agua $25</ion-label>
-	      <ion-select [(ngModel)]="bot">
-	        <ion-option value="1">1</ion-option>
-	        <ion-option value="2">2</ion-option>
-	        <ion-option value="3">3</ion-option>
-	        <ion-option value="4">4</ion-option>
-	        <ion-option value="5">5</ion-option>
-	        <ion-option value="6">6</ion-option>
-	        <ion-option value="7">7</ion-option>
-	        <ion-option value="8">8</ion-option>
-	        <ion-option value="9">9</ion-option>
-	        <ion-option value="10">10</ion-option>
-	      </ion-select>
-		</ion-item>
+  		<ion-item>
+  	      <ion-label>Botella de agua $25</ion-label>
+  	      <ion-select [(ngModel)]="bot">
+  	        <ion-option value="1">1</ion-option>
+  	        <ion-option value="2">2</ion-option>
+  	        <ion-option value="3">3</ion-option>
+  	        <ion-option value="4">4</ion-option>
+  	        <ion-option value="5">5</ion-option>
+  	        <ion-option value="6">6</ion-option>
+  	        <ion-option value="7">7</ion-option>
+  	        <ion-option value="8">8</ion-option>
+  	        <ion-option value="9">9</ion-option>
+  	        <ion-option value="10">10</ion-option>
+  	      </ion-select>
+  		</ion-item>
 
-		<ion-item>
-	      <ion-label>Cerveza Indio $45</ion-label>
-	      <ion-select [(ngModel)]="cer">
-	        <ion-option value="1">1</ion-option>
-	        <ion-option value="2">2</ion-option>
-	        <ion-option value="3">3</ion-option>
-	        <ion-option value="4">4</ion-option>
-	        <ion-option value="5">5</ion-option>
-	        <ion-option value="6">6</ion-option>
-	        <ion-option value="7">7</ion-option>
-	        <ion-option value="8">8</ion-option>
-	        <ion-option value="9">9</ion-option>
-	        <ion-option value="10">10</ion-option>
-	      </ion-select>
-		</ion-item>
-	</ion-list>
-	<p>Total a pagar: $1000.00</p>
-	<button ion-button full (click)="guardar();">Enviar Orden</button>
-  
+  		<ion-item>
+  	      <ion-label>Cerveza Indio $45</ion-label>
+  	      <ion-select [(ngModel)]="cer">
+  	        <ion-option value="1">1</ion-option>
+  	        <ion-option value="2">2</ion-option>
+  	        <ion-option value="3">3</ion-option>
+  	        <ion-option value="4">4</ion-option>
+  	        <ion-option value="5">5</ion-option>
+  	        <ion-option value="6">6</ion-option>
+  	        <ion-option value="7">7</ion-option>
+  	        <ion-option value="8">8</ion-option>
+  	        <ion-option value="9">9</ion-option>
+  	        <ion-option value="10">10</ion-option>
+  	      </ion-select>
+  		</ion-item>
+  	</ion-list>
+  	<p>Total a pagar: $1000.00</p>
+  	<button ion-button full (click)="guardar();">Enviar Orden</button>
 
-</ion-content>
+
+  </ion-content>
+</div>

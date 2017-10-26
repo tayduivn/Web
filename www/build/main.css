@@ -32873,7 +32873,7 @@ ion-navbar.toolbar {
   }
 }
 
-#container {
+.container {
   height: 100%;
   widht: 100%;
   /* For Safari 5.1 to 6.0 */
@@ -32884,7 +32884,7 @@ ion-navbar.toolbar {
   /* Standard syntax (must be last) */
 }
 
-#container h1 {
+.container h1 {
   font-size: 50px;
   color: #e175da;
   padding-top: 50px;
