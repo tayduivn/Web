@@ -14,12 +14,16 @@ import { OrdenPage } from '../pages/orden/orden';
 //Servicios
 import { ListaOrdenesService } from './services/listaOrdenes';
 
+//Pipes
+import { PlaceholderPipe } from './pipes/placeholder.pipe';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 @NgModule({
   declarations: [
     MyApp,
+    PlaceholderPipe,
     BarPage,
     KaraokePage,
     LoginPage,

@@ -4,24 +4,19 @@
   </ion-navbar>
 </ion-header>
 
-<div class="container">
-  <ion-content padding>
-    <h1>Comida pedida</h1>
-    <ion-list inset *ngFor="let orden of _listaOrdenes.ordenestotales">
-      <a href="" class="botonPersonalizado">{{ orden.nombre }}</a>
-
+<ion-content padding>
+  <h1 class="titulo">Comida pedida</h1>
+  <ion-list inset *ngFor="let orden of _listaOrdenes.ordenestotales">
+    <a href="" class="botonPersonalizado">{{ orden.nombre }}</a>
     </ion-list>
-  <!--
-  <button ion-item (click)="itemSelected(item)">
-  </button>
-
+<!--
+<button ion-item (click)="itemSelected(item)">
+</button>
     <ul>
-      <li *ngFor="let orden of _listaOrdenes.ordenestotales">
-        {{orden.nombre}}
-      </li>
-    </ul>
-  -->
-
-    <button ion-button full (click)="nextPage();">Nueva Orden</button>
-  </ion-content>
-</div>
+    <li *ngFor="let orden of _listaOrdenes.ordenestotales">
+      {{orden.nombre}}
+    </li>
+  </ul>
+-->
+  <button ion-button full (click)="nextPage();">Nueva Orden</button>
+</ion-content>

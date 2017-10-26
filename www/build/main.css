@@ -32910,6 +32910,12 @@ ion-navbar.toolbar {
   text-decoration: none;
 }
 
+.titulo {
+  font-size: 35px;
+  color: #e175da;
+  align: center;
+}
+
 body {
   cursor: url("http://ionicframework.com/img/finger.png"), auto;
 }
