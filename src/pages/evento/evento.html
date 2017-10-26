@@ -7,12 +7,23 @@
 
 <ion-content padding>
   <h1 class="titulo">Eventos Creados (max 3)</h1>
+
+  <div id="listadeeventos">
+    <ol *ngFor="let item of eventos">
+      <li>
+        <a href="#">{{ item.nombre }}</a>
+      </li>
+    </ol>
+  </div>
+
+
+  <!--
   <ion-list inset>
   	<button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
   		{{ item }}
   	</button>
   </ion-list>
-
+-->
 
   <button ion-button full (click)="nextPage();">Nuevo Evento</button>
 </ion-content>

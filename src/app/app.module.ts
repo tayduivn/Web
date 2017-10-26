@@ -15,6 +15,7 @@ import { OrdenPage } from '../pages/orden/orden';
 //Servicios
 import { ListaOrdenesService } from './services/listaOrdenes';
 import { PreciosMenuService } from './services/preciosMenu';
+import { MostrarEventosService } from './services/mostrarEventos';
 
 //Pipes
 import { PlaceholderPipe } from './pipes/placeholder.pipe';
@@ -55,6 +56,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SplashScreen,
     ListaOrdenesService,
     PreciosMenuService,
+    MostrarEventosService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

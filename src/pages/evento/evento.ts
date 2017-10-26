@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NuevoEventoPage } from '../nuevoevento/nuevoevento';
+import { MostrarEventosService } from '../../app/services/mostrarEventos';
 
 /**
  * Generated class for the InicioPage page.
@@ -16,8 +17,12 @@ import { NuevoEventoPage } from '../nuevoevento/nuevoevento';
 })
 export class EventoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  eventos = [];
 
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    private obtenerEventos:MostrarEventosService) {
+      this.obtenerEventos.getData()
+        .subscribe(resData => this.eventos = resData);
   }
 
   nextPage(){
