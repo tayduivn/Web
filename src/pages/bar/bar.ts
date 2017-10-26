@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'page-bar',
@@ -7,8 +7,12 @@ import { NavController } from 'ionic-angular';
 })
 export class BarPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
 
+  }
+
+  guardar(){
+  	this.navCtrl.pop();
   }
 
 }

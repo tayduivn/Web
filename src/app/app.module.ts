@@ -9,6 +9,10 @@ import { LoginPage } from '../pages/login/login';
 import { TabsPage } from '../pages/tabs/tabs';
 import { NuevoEventoPage } from '../pages/nuevoevento/nuevoevento';
 import { EventoPage } from '../pages/evento/evento';
+import { OrdenPage } from '../pages/orden/orden';
+
+//Servicios
+import { ListaOrdenesService } from './services/listaOrdenes';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -21,7 +25,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     TabsPage,
     NuevoEventoPage,
-    EventoPage
+    EventoPage,
+    OrdenPage
   ],
   imports: [
     BrowserModule,
@@ -35,11 +40,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     TabsPage,
     NuevoEventoPage,
-    EventoPage
+    EventoPage,
+    OrdenPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    ListaOrdenesService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
