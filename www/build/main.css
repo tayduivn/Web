@@ -32916,6 +32916,16 @@ ion-navbar.toolbar {
   align: center;
 }
 
+.listadealimentos {
+  background: #3399ff;
+  padding: 20px;
+}
+
+.listadealimentositem {
+  background: #cce5ff;
+  margin: 5px;
+}
+
 body {
   cursor: url("http://ionicframework.com/img/finger.png"), auto;
 }

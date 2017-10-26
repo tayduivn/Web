@@ -2,6 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { HttpModule } from '@angular/http';
 
 import { BarPage } from '../pages/bar/bar';
 import { KaraokePage } from '../pages/karaoke/karaoke';
@@ -13,6 +14,7 @@ import { OrdenPage } from '../pages/orden/orden';
 
 //Servicios
 import { ListaOrdenesService } from './services/listaOrdenes';
+import { PreciosMenuService } from './services/preciosMenu';
 
 //Pipes
 import { PlaceholderPipe } from './pipes/placeholder.pipe';
@@ -34,6 +36,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -51,6 +54,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     StatusBar,
     SplashScreen,
     ListaOrdenesService,
+    PreciosMenuService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
