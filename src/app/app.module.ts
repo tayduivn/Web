@@ -4,6 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http';
 
+//Components
 import { BarPage } from '../pages/bar/bar';
 import { KaraokePage } from '../pages/karaoke/karaoke';
 import { LoginPage } from '../pages/login/login';
@@ -19,6 +20,9 @@ import { MostrarEventosService } from './services/mostrarEventos';
 
 //Pipes
 import { PlaceholderPipe } from './pipes/placeholder.pipe';
+
+//Facebook
+import { Facebook } from '@ionic-native/facebook';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -57,6 +61,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ListaOrdenesService,
     PreciosMenuService,
     MostrarEventosService,
+    Facebook,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
