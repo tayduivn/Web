@@ -195,7 +195,7 @@ var MostrarEventosService = (function () {
 }());
 MostrarEventosService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]])
 ], MostrarEventosService);
 
 //# sourceMappingURL=mostrarEventos.js.map
@@ -370,7 +370,7 @@ var PreciosMenuService = (function () {
 }());
 PreciosMenuService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]])
 ], PreciosMenuService);
 
 //# sourceMappingURL=preciosMenu.js.map
@@ -501,14 +501,16 @@ var BuscadorSpotifyService = (function () {
             + this.clientId + '&q=';
     }
     BuscadorSpotifyService.prototype.searchArtists = function (searchTerm) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        headers.append('authorization', 'Bearer BQA5gJAVmt3LZ5dQM04KCHHvvdV83C5gP9wYoNvD2pCmwmIfErOWL2PUSH6Iou7fhk7mJ7rbMc6D8xUMUi9QSw');
         var url = this.artistUrl + searchTerm;
-        return this.http.get(url).map(function (res) { return res.json(); });
+        return this.http.get(url, { headers: headers }).map(function (res) { return res.json(); });
     };
     return BuscadorSpotifyService;
 }());
 BuscadorSpotifyService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]])
 ], BuscadorSpotifyService);
 
 //# sourceMappingURL=buscadorSpotify.js.map
@@ -658,7 +660,7 @@ AppModule = __decorate([
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_http__["c" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_5__angular_forms__["e" /* ReactiveFormsModule */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
                 links: [
