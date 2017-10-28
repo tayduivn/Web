@@ -11,7 +11,7 @@ export class OrdenPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
   private _listaOrdenes: ListaOrdenesService) {
-
+    /*Damos de alta el servicio que permite recibir las órdenes*/
   }
 
   nextPage(){

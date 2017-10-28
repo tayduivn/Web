@@ -8,6 +8,7 @@ export class ListaOrdenesService {
 
   constructor() {
 
+    /*Crea varias órdenes utilizando las clases*/
     console.log("Servicio Inicializado");
 
     let orden1 = new OrdenesClase('Pedido 1');

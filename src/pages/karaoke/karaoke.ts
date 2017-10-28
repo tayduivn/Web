@@ -16,6 +16,10 @@ export class KaraokePage implements OnInit{
 
   }
 
+  /*Llama al servicio definido en src/app/services y le pide que haga una
+  busqueda utilizando la palabra de nuestro inputField, si el resultado no
+  arroja un error, entonces obtenemos los artistas
+  */
   ngOnInit(){
     this.inputField.valueChanges
       .subscribe(inputField => this.searchService.searchArtists(inputField)

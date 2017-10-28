@@ -12,10 +12,16 @@ export class BarPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private obtenerAlimentos: PreciosMenuService) {
+
+      /*Utiliza un servicio definido en src/app/servicio para obtener info
+      de los alimentos*/
       this.obtenerAlimentos.getData()
         .subscribe(resData => this.alimentos = resData);
   }
 
+
+  /*El dar la instrucción enviar orden, este método cierra la vista
+  actual*/
   guardar(){
   	this.navCtrl.pop();
   }

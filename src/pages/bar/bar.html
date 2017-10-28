@@ -10,6 +10,8 @@
 <ion-content padding>
 	<h1 class="titulo">Alimentos</h1>
 
+  <!-- Iteramos a nuestra variable alimentos para poner en una lista
+  el nombre y el precio de los alimentos del menú -->
   <ul *ngFor="let item of alimentos" class="listadealimentos">
     <li class="listadealimentositem">
       <p>{{item.nombre}}</p>

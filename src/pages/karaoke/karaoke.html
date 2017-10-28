@@ -11,12 +11,20 @@
     <h1>Busca tu artista favorito</h1>
     <div>
       <ion-icon name="search"></ion-icon>
+
+      <!--
+      BUscador de Spotify
+      -->
       <input [formControl] = "inputField" type="text" id="buscarcancion"
         placeholder="Busca un artista..." autofocus>
     </div>
 
     <div id="listadeartistas">
       <ul>
+        <!--
+        Cada que encuentra resultados, muestra en una lista un checkbox,
+        la imagen y el nombre del artista
+        -->
         <div *ngFor="let item of searchResults">
           <li>
             <input type="checkbox" value="None">

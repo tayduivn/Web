@@ -6,6 +6,9 @@ import 'rxjs/Rx';
 export class PreciosMenuService {
   constructor(public http:Http ) {  }
 
+
+  /*Obtiene la información del json en los asests y lo regresa como
+  respuesta*/
   getData(){
     return this.http.get("../../assets/jsons/precio-del-menu.json")
       .map((res: Response) => res.json());

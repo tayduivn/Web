@@ -21,10 +21,15 @@ export class EventoPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private obtenerEventos:MostrarEventosService) {
+
+      /*Utiliza un servicio definido en src/app/servicio para obtener info
+      de los eventos*/
       this.obtenerEventos.getData()
         .subscribe(resData => this.eventos = resData);
   }
 
+  /*Al hacer click en el botón nuevo evento, esta parte permite la
+  transición de pantallas */
   nextPage(){
   	this.navCtrl.push(NuevoEventoPage);
   }

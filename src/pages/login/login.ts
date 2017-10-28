@@ -20,6 +20,12 @@ export class LoginPage {
   	this.navCtrl.push(EventoPage);
   }
 
+  /*
+  Al importar funciones de facebook e inicializarlas en el constructor nos
+  permite solicitar datos como en este caso el name, first_name, email, y
+  todas esas variables las guardamos en la variable vacía userData definida
+  arriba
+  */
   loginWithFacebook(){
     this.facebook.login(['email', 'public_profile']).then((response: FacebookLoginResponse) => {
       this.facebook.api('me?fields=id,name,email,first_name)', []).then(profile => {

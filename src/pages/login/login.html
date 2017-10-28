@@ -2,13 +2,18 @@
 	<h1>Retromanía</h1>
 	<img src="https://vignette2.wikia.nocookie.net/clubpenguin/images/1/1c/Micr%C3%B3fono_icono.png/revision/latest?cb=20140705014018&path-prefix=es" alt="" width="250" height="250"><br><br><br><br>
 
+	<!-- Para lograr la conexión con facebook, al momento de darle al boton
+	entrar con facebook manda llamar al metodolo loginWithFacebook definido
+	en el login.ts -->
 	<button ion-button (click)="loginWithFacebook();">
 		<ion-icon name="logo-facebook"></ion-icon>
 		Entrar con Facebook
 	</button>
 <br><br>
+	<!-- Una vez que la conexión es creada, mostramos el nombre del
+	usuario -->
 	<ion-card *ngIf="userData">
-		<ion-card-header>{{ userData.username }}</ion-card-header>
+		<ion-card-header>Hola {{ userData.username }}</ion-card-header>
 	</ion-card>
 
 	<button ion-button (click)="login();">
