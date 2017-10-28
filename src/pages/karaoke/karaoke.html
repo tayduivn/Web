@@ -6,7 +6,24 @@
   </ion-navbar>
 </ion-header>
 
+<ion-content>
+  <section>
+    <div>
+      <input [formControl] = "inputField" type="text"
+        placeholder="Busca un artista..." autofocus>
+    </div>
 
+    <ul>
+      <div *ngFor="let item of searchResults">
+        <li>
+          <p>{{ item.name }}</p>
+        </li>
+      </div>
+    </ul>
+  </section>
+</ion-content>
+
+<!--
 <ion-content>
   <button ion-button full color="verde_spotify">
   	<ion-icon name="ionic"></ion-icon>
@@ -51,3 +68,4 @@
   </ion-list>
   <button ion-button round>Enviar Selección</button>
 </ion-content>
+-->

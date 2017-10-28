@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 //Components
 import { BarPage } from '../pages/bar/bar';
@@ -17,6 +18,7 @@ import { OrdenPage } from '../pages/orden/orden';
 import { ListaOrdenesService } from './services/listaOrdenes';
 import { PreciosMenuService } from './services/preciosMenu';
 import { MostrarEventosService } from './services/mostrarEventos';
+import { BuscadorSpotifyService } from './services/buscadorSpotify';
 
 //Pipes
 import { PlaceholderPipe } from './pipes/placeholder.pipe';
@@ -42,6 +44,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   imports: [
     BrowserModule,
     HttpModule,
+    ReactiveFormsModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -62,6 +65,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     PreciosMenuService,
     MostrarEventosService,
     Facebook,
+    BuscadorSpotifyService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

@@ -9,10 +9,12 @@
   <h1 class="titulo">Eventos Creados</h1>
 
   <div id="listadeeventos">
-    <ol *ngFor="let item of eventos">
-      <li>
-        <a href="#">{{ item.nombre }}</a>
-      </li>
+    <ol>
+      <div *ngFor="let item of eventos">
+        <li>
+          <a href="#">{{ item.nombre }}</a>
+        </li>
+      </div>
     </ol>
   </div>
 
