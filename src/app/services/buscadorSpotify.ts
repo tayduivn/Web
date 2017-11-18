@@ -18,7 +18,7 @@ export class BuscadorSpotifyService {
     /* Creamos los headers que se requieren para poder hacer la autenticación
     */
     let headers = new Headers();
-    headers.append( 'authorization', 'Bearer BQC3CVA0CRXPQKwKRlyhY4QmBaVC4_EH320_FlO7CxO-x_n1OUGVx0gRTHeLmesrfKbZOBUGVjj7kf6wB1nrug');
+    headers.append( 'authorization', 'Bearer BQC-Cp09LIzZEPQdBJpcorg9FwBLRmQ1SwLLeL5363Dc5XMWGy1r7URKJ9PI7jGnldwUXVdfwNqMRX5yvqMLZg');
 
     /*COnstruimos la url completa con base en la búsqueda del usuario*/
     let url = this.artistUrl + searchTerm;
