@@ -194,7 +194,7 @@ var MostrarEventosService = (function () {
     /*Obtiene la información del json en los asests y lo regresa como
     respuesta*/
     MostrarEventosService.prototype.getData = function () {
-        return this.http.get("../../assets/jsons/eventos-dados-de-alta.json")
+        return this.http.get("http://localhost:3000/api/Eventos")
             .map(function (res) { return res.json(); });
     };
     return MostrarEventosService;

@@ -9,7 +9,7 @@ export class MostrarEventosService {
   /*Obtiene la información del json en los asests y lo regresa como
   respuesta*/
   getData(){
-    return this.http.get("../../assets/jsons/eventos-dados-de-alta.json")
+    return this.http.get("http://localhost:3000/api/Eventos")
       .map((res: Response) => res.json());
   }
 }
