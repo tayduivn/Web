@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NuevoEventoPage } from '../nuevoevento/nuevoevento';
 import { MostrarEventosService } from '../../app/services/mostrarEventos';
+import { EventoDetailPage } from '../eventodetail/eventodetail';
 
 /**
  * Generated class for the InicioPage page.
@@ -32,6 +33,13 @@ export class EventoPage {
   transición de pantallas */
   nextPage(){
   	this.navCtrl.push(NuevoEventoPage);
+  }
+
+  detalle(id: string){
+    let data = {
+      identificador: id
+    };
+    this.navCtrl.push(EventoDetailPage, data);
   }
 
   items = [

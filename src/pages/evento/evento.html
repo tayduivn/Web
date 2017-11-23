@@ -13,7 +13,7 @@
   <div id="listadeeventos">
     <ol>
       <div *ngFor="let item of eventos">
-        <li>
+        <li (click)="detalle(item.id);">
           <a href="#">{{ item.nombre }}</a>
         </li>
       </div>

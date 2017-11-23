@@ -12,4 +12,12 @@ export class MostrarEventosService {
     return this.http.get("http://localhost:3000/api/Eventos")
       .map((res: Response) => res.json());
   }
+
+  getEvento(id:string){
+    var url:string = "http://localhost:3000/api/Eventos/" + id;
+    return this.http.get(url)
+      .map((res: Response) => res.json());
+  }
+
+
 }
