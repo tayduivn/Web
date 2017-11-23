@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { MostrarEventosService } from '../../app/services/mostrarEventos';
 
 /**
  * Generated class for the EventoPage page.
@@ -17,10 +18,12 @@ export class NuevoEventoPage {
 
   nombreDelEvento: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    private nuevoEvento:MostrarEventosService) {
   }
 
   guardar(){
+    this.nuevoEvento.postEvento();
   	this.navCtrl.pop();
   }
 
