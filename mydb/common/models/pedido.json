@@ -1,0 +1,55 @@
+{
+  "name": "Pedido",
+  "plural": "Pedidos",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "numchilaquiles": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "numtacos": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "nummolletes": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "numhamburguesa": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "numcoca": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "numnaranjada": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "numagua": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "numcerveza": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
