@@ -675,7 +675,7 @@ var LoginPage = (function () {
         this.userData = null;
     }
     LoginPage.prototype.login = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__evento_evento__["a" /* EventoPage */]);
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__evento_evento__["a" /* EventoPage */]);
     };
     /*
     Al importar funciones de facebook e inicializarlas en el constructor nos
@@ -1052,10 +1052,9 @@ var ListaOrdenesService = (function () {
 }());
 ListaOrdenesService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]])
 ], ListaOrdenesService);
 
-var _a;
 //# sourceMappingURL=listaOrdenes.js.map
 
 /***/ })

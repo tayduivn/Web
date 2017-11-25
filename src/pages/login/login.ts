@@ -17,7 +17,7 @@ export class LoginPage {
   }
 
   login(){
-  	this.navCtrl.push(EventoPage);
+  	this.navCtrl.setRoot(EventoPage);
   }
 
   /*
