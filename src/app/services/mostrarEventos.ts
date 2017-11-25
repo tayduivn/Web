@@ -19,16 +19,16 @@ export class MostrarEventosService {
       .map((res: Response) => res.json());
   }
 
-  postEvento(){
+  postEvento(name:string,date:Date,hour:string,number:Number){
     let headers = new Headers();
     headers.append('Accept', 'application/json');
     headers.append('Content-Type','application/json');
 
     let parametros = {
-      "nombre": "Nuevo Evento",
-      "fecha": "2017-12-25",
-      "hora": "15:00",
-      "numeropersonas": 7
+      "nombre": name,
+      "fecha": date,
+      "hora": hour,
+      "numeropersonas": number
     };
 
     this.http.post('http://localhost:3000/api/Eventos', JSON.stringify(parametros),{headers: headers})

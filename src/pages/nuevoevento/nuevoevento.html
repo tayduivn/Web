@@ -14,54 +14,58 @@
 
 
 <ion-content padding>
+  <form [formGroup]="todo" (ngSubmit)="logForm()">
+    <ion-item>
+      <ion-label>Nombre del Evento</ion-label>
+      <ion-input type="text" formControlName="nombreDelEvento" [(ngModel)]="nombreDelEvento"
+        name="nombreDelEvento"></ion-input>
+    </ion-item>
 
-<ion-item>
-  <ion-label>Nombre del Evento</ion-label>
-  <ion-input type="text" [(ngModel)]="nombreDelEvento" name="nombreDelEvento"></ion-input>
-</ion-item>
+    <ion-item>
+      <ion-label>Fecha del evento</ion-label>
+      <ion-datetime type="text" formControlName="fechaDelEvento" displayFormat="MM/DD/YYYY"
+        [(ngModel)]="myDate"></ion-datetime>
+    </ion-item>
 
-<ion-item>
-  <ion-label>Fecha del evento</ion-label>
-  <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
-</ion-item>
+    <ion-item>
+      <ion-label>Hora del evento</ion-label>
+      <ion-input type="text" formControlName="horaDelEvento" [(ngModel)]="horaDelEvento"
+        name="horaDelEvento"></ion-input>
+    </ion-item>
 
-<ion-item>
-  <ion-label>Hora del evento</ion-label>
-  <ion-datetime displayFormat="HH:mm" [(ngModel)]="myDate"></ion-datetime>
-</ion-item>
-
-<ion-item>
-  <ion-label>Número de personas invitadas</ion-label>
-  <ion-select [(ngModel)]="numPersonas">
-    <ion-option value="1">1</ion-option>
-    <ion-option value="2">2</ion-option>
-    <ion-option value="3">3</ion-option>
-    <ion-option value="4">4</ion-option>
-    <ion-option value="5">5</ion-option>
-    <ion-option value="6">6</ion-option>
-    <ion-option value="7">7</ion-option>
-    <ion-option value="8">8</ion-option>
-    <ion-option value="9">9</ion-option>
-    <ion-option value="10">10</ion-option>
-    <ion-option value="11">11</ion-option>
-    <ion-option value="12">12</ion-option>
-    <ion-option value="13">13</ion-option>
-    <ion-option value="14">14</ion-option>
-    <ion-option value="15">15</ion-option>
-    <ion-option value="16">16</ion-option>
-    <ion-option value="17">17</ion-option>
-    <ion-option value="18">18</ion-option>
-    <ion-option value="19">19</ion-option>
-    <ion-option value="20">20</ion-option>
-  </ion-select>
-</ion-item>
+    <ion-item>
+      <ion-label>Número de personas invitadas</ion-label>
+      <ion-select type="text" formControlName="personasDelEvento" [(ngModel)]="numPersonas">
+        <ion-option value="1">1</ion-option>
+        <ion-option value="2">2</ion-option>
+        <ion-option value="3">3</ion-option>
+        <ion-option value="4">4</ion-option>
+        <ion-option value="5">5</ion-option>
+        <ion-option value="6">6</ion-option>
+        <ion-option value="7">7</ion-option>
+        <ion-option value="8">8</ion-option>
+        <ion-option value="9">9</ion-option>
+        <ion-option value="10">10</ion-option>
+        <ion-option value="11">11</ion-option>
+        <ion-option value="12">12</ion-option>
+        <ion-option value="13">13</ion-option>
+        <ion-option value="14">14</ion-option>
+        <ion-option value="15">15</ion-option>
+        <ion-option value="16">16</ion-option>
+        <ion-option value="17">17</ion-option>
+        <ion-option value="18">18</ion-option>
+        <ion-option value="19">19</ion-option>
+        <ion-option value="20">20</ion-option>
+      </ion-select>
+    </ion-item>
 
 
-<button ion-button>
-	<ion-icon name="logo-facebook"></ion-icon>
-	Invitar amigos
-</button>
+    <!--<button ion-button>
+    	<ion-icon name="logo-facebook"></ion-icon>
+    	Invitar amigos
+    </button>-->
 
-<button ion-button full (click)="guardar();">Crear Evento</button>
+    <button ion-button full type="submit" [disabled]="!todo.valid">Crear Evento</button>
+  </form>
 
 </ion-content>

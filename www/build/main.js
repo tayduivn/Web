@@ -8,6 +8,7 @@ webpackJsonp([2],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_services_mostrarEventos__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(21);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20,6 +21,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the EventoPage page.
  *
@@ -27,13 +29,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var NuevoEventoPage = (function () {
-    function NuevoEventoPage(navCtrl, navParams, nuevoEvento) {
+    function NuevoEventoPage(navCtrl, navParams, nuevoEvento, formBuilder) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.nuevoEvento = nuevoEvento;
+        this.formBuilder = formBuilder;
+        this.todo = this.formBuilder.group({
+            nombreDelEvento: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["g" /* Validators */].required],
+            fechaDelEvento: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["g" /* Validators */].required],
+            horaDelEvento: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["g" /* Validators */].required],
+            personasDelEvento: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["g" /* Validators */].required],
+        });
     }
-    NuevoEventoPage.prototype.guardar = function () {
-        this.nuevoEvento.postEvento();
+    NuevoEventoPage.prototype.logForm = function () {
+        console.log(this.todo.value);
+        var nombre = this.todo.value.nombreDelEvento;
+        var fecha = this.todo.value.fechaDelEvento;
+        var hora = this.todo.value.horaDelEvento;
+        var numero = this.todo.value.personasDelEvento;
+        this.nuevoEvento.postEvento(nombre, fecha, hora, numero);
         this.navCtrl.pop();
     };
     NuevoEventoPage.prototype.ionViewDidLoad = function () {
@@ -44,10 +58,10 @@ var NuevoEventoPage = (function () {
 NuevoEventoPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-nuevoevento',template:/*ion-inline-start:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/nuevoevento/nuevoevento.html"*/'<!--\n  Generated template for the EventoPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ nombreDelEvento | placeholder:\'Nuevo Evento\' }}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n<ion-item>\n  <ion-label>Nombre del Evento</ion-label>\n  <ion-input type="text" [(ngModel)]="nombreDelEvento" name="nombreDelEvento"></ion-input>\n</ion-item>\n\n<ion-item>\n  <ion-label>Fecha del evento</ion-label>\n  <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>\n</ion-item>\n\n<ion-item>\n  <ion-label>Hora del evento</ion-label>\n  <ion-datetime displayFormat="HH:mm" [(ngModel)]="myDate"></ion-datetime>\n</ion-item>\n\n<ion-item>\n  <ion-label>Número de personas invitadas</ion-label>\n  <ion-select [(ngModel)]="numPersonas">\n    <ion-option value="1">1</ion-option>\n    <ion-option value="2">2</ion-option>\n    <ion-option value="3">3</ion-option>\n    <ion-option value="4">4</ion-option>\n    <ion-option value="5">5</ion-option>\n    <ion-option value="6">6</ion-option>\n    <ion-option value="7">7</ion-option>\n    <ion-option value="8">8</ion-option>\n    <ion-option value="9">9</ion-option>\n    <ion-option value="10">10</ion-option>\n    <ion-option value="11">11</ion-option>\n    <ion-option value="12">12</ion-option>\n    <ion-option value="13">13</ion-option>\n    <ion-option value="14">14</ion-option>\n    <ion-option value="15">15</ion-option>\n    <ion-option value="16">16</ion-option>\n    <ion-option value="17">17</ion-option>\n    <ion-option value="18">18</ion-option>\n    <ion-option value="19">19</ion-option>\n    <ion-option value="20">20</ion-option>\n  </ion-select>\n</ion-item>\n\n\n<button ion-button>\n	<ion-icon name="logo-facebook"></ion-icon>\n	Invitar amigos\n</button>\n\n<button ion-button full (click)="guardar();">Crear Evento</button>\n\n</ion-content>\n'/*ion-inline-end:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/nuevoevento/nuevoevento.html"*/,
+        selector: 'page-nuevoevento',template:/*ion-inline-start:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/nuevoevento/nuevoevento.html"*/'<!--\n  Generated template for the EventoPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ nombreDelEvento | placeholder:\'Nuevo Evento\' }}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <form [formGroup]="todo" (ngSubmit)="logForm()">\n    <ion-item>\n      <ion-label>Nombre del Evento</ion-label>\n      <ion-input type="text" formControlName="nombreDelEvento" [(ngModel)]="nombreDelEvento"\n        name="nombreDelEvento"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Fecha del evento</ion-label>\n      <ion-datetime type="text" formControlName="fechaDelEvento" displayFormat="MM/DD/YYYY"\n        [(ngModel)]="myDate"></ion-datetime>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Hora del evento</ion-label>\n      <ion-input type="text" formControlName="horaDelEvento" [(ngModel)]="horaDelEvento"\n        name="horaDelEvento"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Número de personas invitadas</ion-label>\n      <ion-select type="text" formControlName="personasDelEvento" [(ngModel)]="numPersonas">\n        <ion-option value="1">1</ion-option>\n        <ion-option value="2">2</ion-option>\n        <ion-option value="3">3</ion-option>\n        <ion-option value="4">4</ion-option>\n        <ion-option value="5">5</ion-option>\n        <ion-option value="6">6</ion-option>\n        <ion-option value="7">7</ion-option>\n        <ion-option value="8">8</ion-option>\n        <ion-option value="9">9</ion-option>\n        <ion-option value="10">10</ion-option>\n        <ion-option value="11">11</ion-option>\n        <ion-option value="12">12</ion-option>\n        <ion-option value="13">13</ion-option>\n        <ion-option value="14">14</ion-option>\n        <ion-option value="15">15</ion-option>\n        <ion-option value="16">16</ion-option>\n        <ion-option value="17">17</ion-option>\n        <ion-option value="18">18</ion-option>\n        <ion-option value="19">19</ion-option>\n        <ion-option value="20">20</ion-option>\n      </ion-select>\n    </ion-item>\n\n\n    <!--<button ion-button>\n    	<ion-icon name="logo-facebook"></ion-icon>\n    	Invitar amigos\n    </button>-->\n\n    <button ion-button full type="submit" [disabled]="!todo.valid">Crear Evento</button>\n  </form>\n\n</ion-content>\n'/*ion-inline-end:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/nuevoevento/nuevoevento.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_2__app_services_mostrarEventos__["a" /* MostrarEventosService */]])
+        __WEBPACK_IMPORTED_MODULE_2__app_services_mostrarEventos__["a" /* MostrarEventosService */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */]])
 ], NuevoEventoPage);
 
 //# sourceMappingURL=nuevoevento.js.map
@@ -483,7 +497,7 @@ var KaraokePage = (function () {
     function KaraokePage(navCtrl, searchService) {
         this.navCtrl = navCtrl;
         this.searchService = searchService;
-        this.inputField = new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormControl */]();
+        this.inputField = new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* FormControl */]();
         this.searchResults = [];
     }
     /*Llama al servicio definido en src/app/services y le pide que haga una
@@ -721,7 +735,7 @@ AppModule = __decorate([
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_4__angular_http__["c" /* HttpModule */],
-            __WEBPACK_IMPORTED_MODULE_5__angular_forms__["e" /* ReactiveFormsModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* ReactiveFormsModule */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
                 links: [
                     { loadChildren: '../pages/nuevoevento/nuevoevento.module#EventoPageModule', name: 'NuevoEventoPage', segment: 'nuevoevento', priority: 'low', defaultHistory: [] },
@@ -887,15 +901,15 @@ var MostrarEventosService = (function () {
         return this.http.get(url)
             .map(function (res) { return res.json(); });
     };
-    MostrarEventosService.prototype.postEvento = function () {
+    MostrarEventosService.prototype.postEvento = function (name, date, hour, number) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Accept', 'application/json');
         headers.append('Content-Type', 'application/json');
         var parametros = {
-            "nombre": "Nuevo Evento",
-            "fecha": "2017-12-25",
-            "hora": "15:00",
-            "numeropersonas": 7
+            "nombre": name,
+            "fecha": date,
+            "hora": hour,
+            "numeropersonas": number
         };
         this.http.post('http://localhost:3000/api/Eventos', JSON.stringify(parametros), { headers: headers })
             .map(function (res) { return res.json(); })
