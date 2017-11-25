@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { BarPage } from '../bar/bar';
 import { ListaOrdenesService } from '../../app/services/listaOrdenes';
+import { OrdenDetailPage } from '../ordendetail/ordendetail';
 
 @Component({
   selector: 'page-orden',
@@ -9,10 +10,22 @@ import { ListaOrdenesService } from '../../app/services/listaOrdenes';
 })
 export class OrdenPage {
 
+  ordenes = [];
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
-  private _listaOrdenes: ListaOrdenesService) {
+  private listaOrdenes: ListaOrdenesService) {
     /*Damos de alta el servicio que permite recibir las órdenes*/
+    this.listaOrdenes.getData()
+      .subscribe(resData => this.ordenes = resData);
   }
+
+  detalle(id: string){
+    let data = {
+      identificador: id
+    };
+    this.navCtrl.push(OrdenDetailPage, data);
+  }
+
 
   nextPage(){
   	this.navCtrl.push(BarPage);

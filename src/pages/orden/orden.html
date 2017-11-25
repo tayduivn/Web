@@ -8,8 +8,8 @@
 poner en una lista el nombre de las ordenes creadas -->
 <ion-content padding>
   <h1 class="titulo">Comida pedida</h1>
-  <ion-list inset *ngFor="let orden of _listaOrdenes.ordenestotales">
-    <a href="#" class="botonPersonalizado">{{ orden.nombre }}</a>
+  <ion-list inset *ngFor="let item of ordenes">
+    <a href="#" (click)="detalle(item.id);" class="botonPersonalizado">Orden Solicitada: {{item.id}}</a>
     </ion-list>
 <!--
 <button ion-item (click)="itemSelected(item)">

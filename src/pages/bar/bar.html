@@ -12,25 +12,30 @@
 
   <!-- Iteramos a nuestra variable alimentos para poner en una lista
   el nombre y el precio de los alimentos del menú -->
-  <ul *ngFor="let item of alimentos" class="listadealimentos">
-    <li class="listadealimentositem">
-      <p>{{item.nombre}}</p>
-      <p>{{item.precio}} pesos</p>
-      <select>
-        <option value="0">0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-      </select>
-    </li>
-  </ul>
+  <form [formGroup]="todo" (ngSubmit)="logForm()">
+    <ul class="listadealimentos">
+      <div *ngFor="let item of alimentos;let i = index">
+        <li class="listadealimentositem">
+          <p>{{item.nombre}}</p>
+          <p>{{item.precio}} pesos</p>
+          <select type="text" formControlName="n{{i}}" [(ngModel)]="numPedido">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+        </li>
+      </div>
+    </ul>
+    <button ion-button full type="submit" [disabled]="!todo.valid">Enviar Orden</button>
+
+  </form>
   <!--
 	<ion-list>
 		<ion-item>
@@ -49,9 +54,8 @@
 	      </ion-select>
 		</ion-item>
 	</ion-list>
--->
-	<p>Total a pagar: $1000.00</p>
-	<button ion-button full (click)="guardar();">Enviar Orden</button>
 
+	<button ion-button full (click)="guardar();">Enviar Orden</button>
+-->
 
 </ion-content>
