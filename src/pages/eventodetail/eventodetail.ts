@@ -9,12 +9,16 @@ import { MostrarEventosService } from '../../app/services/mostrarEventos';
 export class EventoDetailPage implements OnInit {
   evento = [];
   clave:string;
+  claves = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private obtenerEvento:MostrarEventosService) {  }
   ngOnInit() {}
 
-
+  borrarEvento(){
+    this.obtenerEvento.deleteEvento(this.clave)
+      .subscribe(resData => this.claves = resData);
+  }
 
   ionViewDidLoad() {
     this.clave = this.navParams.get('identificador');

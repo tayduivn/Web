@@ -205,8 +205,14 @@ var EventoDetailPage = (function () {
         this.navParams = navParams;
         this.obtenerEvento = obtenerEvento;
         this.evento = [];
+        this.claves = [];
     }
     EventoDetailPage.prototype.ngOnInit = function () { };
+    EventoDetailPage.prototype.borrarEvento = function () {
+        var _this = this;
+        this.obtenerEvento.deleteEvento(this.clave)
+            .subscribe(function (resData) { return _this.claves = resData; });
+    };
     EventoDetailPage.prototype.ionViewDidLoad = function () {
         var _this = this;
         this.clave = this.navParams.get('identificador');
@@ -218,7 +224,7 @@ var EventoDetailPage = (function () {
 }());
 EventoDetailPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-eventodetail',template:/*ion-inline-start:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/eventodetail/eventodetail.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Detalles del evento</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <h1 class="titulo">Información</h1>\n\n      <h1>Nombre del evento: {{ evento.nombre }}</h1>\n      <h2>Fecha: {{ evento.fecha }}</h2>\n      <h2>Hora: {{ evento.hora }}</h2>\n      <h2># Personas: {{ evento.numeropersonas }}</h2>\n\n</ion-content>\n'/*ion-inline-end:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/eventodetail/eventodetail.html"*/,
+        selector: 'page-eventodetail',template:/*ion-inline-start:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/eventodetail/eventodetail.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Detalles del evento</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <h1 class="titulo">Información</h1>\n\n      <h1>Nombre del evento: {{ evento.nombre }}</h1>\n      <h2>Fecha: {{ evento.fecha }}</h2>\n      <h2>Hora: {{ evento.hora }}</h2>\n      <h2># Personas: {{ evento.numeropersonas }}</h2>\n\n\n        <button ion-button (click)="borrarEvento();">\n      		Borrar Evento\n      	</button>\n      \n</ion-content>\n'/*ion-inline-end:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/eventodetail/eventodetail.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
         __WEBPACK_IMPORTED_MODULE_2__app_services_mostrarEventos__["a" /* MostrarEventosService */]])
@@ -896,6 +902,13 @@ var MostrarEventosService = (function () {
             .subscribe(function (data) {
             console.log(data);
         });
+    };
+    MostrarEventosService.prototype.deleteEvento = function (id) {
+        var headers2 = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        headers2.append('Accept', 'application/json');
+        var url2 = "http://localhost:3000/api/Eventos/" + id;
+        return this.http.delete(url2, { headers: headers2 })
+            .map(function (res) { return res.json(); });
     };
     return MostrarEventosService;
 }());

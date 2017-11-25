@@ -39,5 +39,13 @@ export class MostrarEventosService {
 
   }
 
+  deleteEvento(id:string){
+    let headers2 = new Headers();
+    headers2.append('Accept', 'application/json');
+    var url2:string = "http://localhost:3000/api/Eventos/" + id;
+    return this.http.delete(url2,{headers: headers2})
+      .map((res: Response) => res.json());
+  }
+
 
 }
