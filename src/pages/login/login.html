@@ -1,17 +1,17 @@
 <div class="container">
 	<h1>Retromanía</h1>
-	<img src="https://vignette2.wikia.nocookie.net/clubpenguin/images/1/1c/Micr%C3%B3fono_icono.png/revision/latest?cb=20140705014018&path-prefix=es" alt="" width="250" height="250"><br><br><br><br>
+	<img src="https://vignette2.wikia.nocookie.net/clubpenguin/images/1/1c/Micr%C3%B3fono_icono.png/revision/latest?cb=20140705014018&path-prefix=es" alt="" width="230" height="230"><br><br><br><br>
 
 	<!-- Para lograr la conexión con facebook, al momento de darle al boton
 	entrar con facebook manda llamar al metodolo loginWithFacebook definido
 	en el login.ts -->
 	<div class="form-style-5">
-		<form>
-			<fieldset>
-				<input type="text" name="field1" placeholder="Usuario *">
-				<input type="password" name="field2" placeholder="Contraseña *">
-			</fieldset>
-		</form>
+
+		<ion-input type="text" [(ngModel)]="user.email"></ion-input>
+		<ion-input type="password" [(ngModel)]="user.password"></ion-input>
+		<button ion-button (click)="login(user);">
+			Entrar
+		</button>
 	</div>
 
 
@@ -25,8 +25,4 @@
 	<ion-card *ngIf="userData">
 		<ion-card-header>Hola {{ userData.username }}</ion-card-header>
 	</ion-card>
-
-	<button ion-button (click)="login();">
-		Entrar
-	</button>
 </div>

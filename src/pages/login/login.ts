@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { EventoPage } from '../evento/evento';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
-
+import { User } from '../../app/models/user';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'page-login',
@@ -11,13 +12,27 @@ import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 export class LoginPage {
 
   userData = null;
+  user = {} as User;
 
-  constructor(public navCtrl: NavController, private facebook: Facebook) {
+  constructor(public navCtrl: NavController, private facebook: Facebook,
+    private afAuth: AngularFireAuth) {
 
   }
 
-  login(){
-  	this.navCtrl.setRoot(EventoPage);
+  async login(user: User){
+    if(user.password == '1234567890'){
+      try{
+        const result = this.afAuth.auth.signInWithEmailAndPassword(user.email,user.password);
+        if(result){
+          this.navCtrl.setRoot(EventoPage);
+        }
+      }
+      catch(e){
+        console.error(e);
+      }
+    }
+
+  	/*this.navCtrl.setRoot(EventoPage);*/
   }
 
   /*

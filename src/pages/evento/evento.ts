@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { NuevoEventoPage } from '../nuevoevento/nuevoevento';
 import { MostrarEventosService } from '../../app/services/mostrarEventos';
 import { EventoDetailPage } from '../eventodetail/eventodetail';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 /**
  * Generated class for the InicioPage page.
@@ -21,7 +22,8 @@ export class EventoPage {
   eventos = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private obtenerEventos:MostrarEventosService) {
+    private obtenerEventos:MostrarEventosService, private afAuth: AngularFireAuth,
+    private toast: ToastController) {
 
       /*Utiliza un servicio definido en src/app/servicio para obtener info
       de los eventos*/
@@ -52,8 +54,20 @@ export class EventoPage {
   	console.log("Selected Item", item);
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad EventoPage');
+  ionViewWillLoad() {
+    this.afAuth.authState.subscribe(data => {
+      if(data && data.email && data.uid){
+        this.toast.create({
+          message: `Welcome to Retromanía, ${data.email}`,
+          duration: 3000
+        }).present();
+      }else{
+        this.toast.create({
+          message: `No se encontró autenticación`,
+          duration: 3000
+        }).present();
+      }
+    });
   }
 
 }
