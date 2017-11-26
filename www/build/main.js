@@ -124,6 +124,11 @@ var EventoPage = (function () {
     EventoPage.prototype.nextPage = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__nuevoevento_nuevoevento__["a" /* NuevoEventoPage */]);
     };
+    EventoPage.prototype.ionViewDidLeave = function () {
+        var _this = this;
+        this.obtenerEventos.getData()
+            .subscribe(function (resData) { return _this.eventos = resData; });
+    };
     EventoPage.prototype.detalle = function (id) {
         var data = {
             identificador: id
@@ -149,6 +154,8 @@ var EventoPage = (function () {
                 }).present();
             }
         });
+        this.obtenerEventos.getData()
+            .subscribe(function (resData) { return _this.eventos = resData; });
     };
     return EventoPage;
 }());
@@ -245,6 +252,7 @@ var EventoDetailPage = (function () {
         var _this = this;
         this.obtenerEvento.deleteEvento(this.clave)
             .subscribe(function (resData) { return _this.claves = resData; });
+        this.navCtrl.pop();
     };
     EventoDetailPage.prototype.ionViewDidLoad = function () {
         var _this = this;
@@ -350,6 +358,16 @@ var OrdenPage = (function () {
     };
     OrdenPage.prototype.nextPage = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__bar_bar__["a" /* BarPage */]);
+    };
+    OrdenPage.prototype.ionViewDidLeave = function () {
+        var _this = this;
+        this.listaOrdenes.getData()
+            .subscribe(function (resData) { return _this.ordenes = resData; });
+    };
+    OrdenPage.prototype.ionViewWillLoad = function () {
+        var _this = this;
+        this.listaOrdenes.getData()
+            .subscribe(function (resData) { return _this.ordenes = resData; });
     };
     OrdenPage.prototype.itemSelected = function (item) {
         console.log("Selected Item", item);
@@ -596,15 +614,23 @@ var KaraokePage = (function () {
                 return;
             }
             else {
-                _this.searchResults = result.artists.items;
+                _this.searchResults = result.tracks.items;
             }
         }); });
+    };
+    KaraokePage.prototype.agregarCancion = function (nombre, album, artista, duracion, imagen) {
+        console.log(nombre);
+        console.log(album);
+        console.log(artista);
+        console.log(duracion);
+        console.log(imagen);
+        this.searchService.postCancion(nombre, album, artista, duracion, imagen);
     };
     return KaraokePage;
 }());
 KaraokePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-karaoke',template:/*ion-inline-start:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/karaoke/karaoke.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Karaoke!!\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <section>\n    <h1>Busca tu artista favorito</h1>\n    <div>\n      <ion-icon name="search"></ion-icon>\n\n      <!--\n      BUscador de Spotify\n      -->\n      <input [formControl] = "inputField" type="text" id="buscarcancion"\n        placeholder="Busca un artista..." autofocus>\n    </div>\n\n    <div id="listadeartistas">\n      <ul>\n        <!--\n        Cada que encuentra resultados, muestra en una lista un checkbox,\n        la imagen y el nombre del artista\n        -->\n        <div *ngFor="let item of searchResults">\n          <li>\n            <input type="checkbox" value="None">\n            <img src="{{ item.images[\'2\']?.url }}" alt="{{ item.name }}"\n              width="150" height="150">\n            <p id="nombredelartista">{{ item.name }}</p>\n          </li>\n        </div>\n      </ul>\n    </div>\n\n\n    <a href="#" class="button" *ngIf="searchResults">Enviar Selección</a>\n  </section>\n</ion-content>\n<!--\n<ion-content>\n  <button ion-button full color="verde_spotify">\n  	<ion-icon name="ionic"></ion-icon>\n  	Conectarse a Spotify\n  </button>\n  <h1 class="titulo">Selecciona una lista</h1>\n  <ion-list>\n  	<ion-item>\n  		<ion-label>Selecciona PlayList</ion-label>\n  		<ion-select [(ngModel)]="plist">\n  			<ion-option value="p1">Baladas Románticas</ion-option>\n  			<ion-option value="p2">Today\'s Top Hits</ion-option>\n  			<ion-option value="p3">Éxitos MX</ion-option>\n  			<ion-option value="p4">Boleros Pop</ion-option>\n  			<ion-option value="p5">Rock en Español</ion-option>\n  		</ion-select>\n  	</ion-item>\n  </ion-list>\n  <h1 class="titulo">Selecciona tus canciones</h1>\n  <ion-list>\n	<ion-item>\n      <ion-label>Photograph - Ed Sheeran</ion-label>\n      <ion-checkbox color="primary"></ion-checkbox>\n	</ion-item>\n  	<ion-item>\n      <ion-label>You\'re Beautiful - James Blunt</ion-label>\n      <ion-checkbox color="dark"></ion-checkbox>\n	</ion-item>\n  	<ion-item>\n      <ion-label>Llegaste tú - Jesse y Joy</ion-label>\n      <ion-checkbox color="danger"></ion-checkbox>\n	</ion-item>\n  	<ion-item>\n      <ion-label>Te Regalo - Carla Morrison</ion-label>\n      <ion-checkbox color="royal"></ion-checkbox>\n	</ion-item>\n\n	<ion-item>\n      <ion-label>Moonlight - Ariana Grande</ion-label>\n      <ion-checkbox color="energized"></ion-checkbox>\n	</ion-item>\n  </ion-list>\n  <button ion-button round>Enviar Selección</button>\n</ion-content>\n-->\n'/*ion-inline-end:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/karaoke/karaoke.html"*/
+        selector: 'page-karaoke',template:/*ion-inline-start:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/karaoke/karaoke.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Karaoke!!\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <section>\n    <h1>Busca tu cancion favorita</h1>\n    <div>\n      <ion-icon name="search"></ion-icon>\n\n      <!--\n      BUscador de Spotify\n      -->\n      <input [formControl] = "inputField" type="text" id="buscarcancion"\n        placeholder="Busca una cancion..." autofocus>\n    </div>\n\n    <div id="listadeartistas">\n      <ul>\n        <!--\n        Cada que encuentra resultados, muestra en una lista un checkbox,\n        la imagen y el nombre del artista\n        -->\n        <div *ngFor="let item of searchResults">\n          <li>\n            \n            <img src="{{ item.album.images[\'2\']?.url }}" alt="{{ item.name }}"\n              width="150" height="150">\n            <p id="nombredelartista">Nombre:{{ item.name }}</p>\n            <p id="nombredelartista">Album: {{ item.album.name }}</p>\n            <p id="nombredelartista">Artista: {{ item.album.artists[\'0\']?.name }}</p>\n            <button ion-button (click)="agregarCancion(item.name,item.album.name,item.album.artists[\'0\']?.name,\n              item.duration_ms,item.album.images[\'2\']?.url);">\n          		Agregar Canción\n          	</button>\n          </li>\n        </div>\n      </ul>\n    </div>\n\n\n    <a href="#" class="button" *ngIf="searchResults">Enviar Selección</a>\n  </section>\n</ion-content>\n<!--\n<ion-content>\n  <button ion-button full color="verde_spotify">\n  	<ion-icon name="ionic"></ion-icon>\n  	Conectarse a Spotify\n  </button>\n  <h1 class="titulo">Selecciona una lista</h1>\n  <ion-list>\n  	<ion-item>\n  		<ion-label>Selecciona PlayList</ion-label>\n  		<ion-select [(ngModel)]="plist">\n  			<ion-option value="p1">Baladas Románticas</ion-option>\n  			<ion-option value="p2">Today\'s Top Hits</ion-option>\n  			<ion-option value="p3">Éxitos MX</ion-option>\n  			<ion-option value="p4">Boleros Pop</ion-option>\n  			<ion-option value="p5">Rock en Español</ion-option>\n  		</ion-select>\n  	</ion-item>\n  </ion-list>\n  <h1 class="titulo">Selecciona tus canciones</h1>\n  <ion-list>\n	<ion-item>\n      <ion-label>Photograph - Ed Sheeran</ion-label>\n      <ion-checkbox color="primary"></ion-checkbox>\n	</ion-item>\n  	<ion-item>\n      <ion-label>You\'re Beautiful - James Blunt</ion-label>\n      <ion-checkbox color="dark"></ion-checkbox>\n	</ion-item>\n  	<ion-item>\n      <ion-label>Llegaste tú - Jesse y Joy</ion-label>\n      <ion-checkbox color="danger"></ion-checkbox>\n	</ion-item>\n  	<ion-item>\n      <ion-label>Te Regalo - Carla Morrison</ion-label>\n      <ion-checkbox color="royal"></ion-checkbox>\n	</ion-item>\n\n	<ion-item>\n      <ion-label>Moonlight - Ariana Grande</ion-label>\n      <ion-checkbox color="energized"></ion-checkbox>\n	</ion-item>\n  </ion-list>\n  <button ion-button round>Enviar Selección</button>\n</ion-content>\n-->\n'/*ion-inline-end:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/karaoke/karaoke.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__app_services_buscadorSpotify__["a" /* BuscadorSpotifyService */]])
 ], KaraokePage);
@@ -639,20 +665,37 @@ var BuscadorSpotifyService = (function () {
         this.http = http;
         /*Definimos nuestro id a la url que utilizamos para la petición*/
         this.clientId = '909b31c0f394487eacc7468c2ac01e93';
-        this.artistUrl = 'https://api.spotify.com/v1/search?type=artist&limit=10&client_id='
+        this.artistUrl = 'https://api.spotify.com/v1/search?type=track&limit=10&client_id='
             + this.clientId + '&q=';
     }
     BuscadorSpotifyService.prototype.searchArtists = function (searchTerm) {
         /* Creamos los headers que se requieren para poder hacer la autenticación
         */
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
-        headers.append('authorization', 'Bearer BQC-Cp09LIzZEPQdBJpcorg9FwBLRmQ1SwLLeL5363Dc5XMWGy1r7URKJ9PI7jGnldwUXVdfwNqMRX5yvqMLZg');
+        headers.append('authorization', 'Bearer BQBg-DePT_Es8cjI3e1LJHkZgej1Eyqq3hT9vjI5cjp7cZ-IFnygsEtfkUJCZDcSFfZxrY6i239dzblCB-3nnA');
         /*COnstruimos la url completa con base en la búsqueda del usuario*/
         var url = this.artistUrl + searchTerm;
         /*Solicitamos con get un json con la url que construimos y
         enviándole los headers para que no haya errores de tokken. El resultado
         lo regresamos*/
         return this.http.get(url, { headers: headers }).map(function (res) { return res.json(); });
+    };
+    BuscadorSpotifyService.prototype.postCancion = function (name, album, artist, duration, image) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        headers.append('Accept', 'application/json');
+        headers.append('Content-Type', 'application/json');
+        var parametros = {
+            "nombre": name,
+            "album": album,
+            "artista": artist,
+            "duracion": duration,
+            "image": image
+        };
+        this.http.post('http://localhost:3000/api/Canciones', JSON.stringify(parametros), { headers: headers })
+            .map(function (res) { return res.json(); })
+            .subscribe(function (data) {
+            console.log(data);
+        });
     };
     return BuscadorSpotifyService;
 }());

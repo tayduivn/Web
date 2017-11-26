@@ -18,6 +18,7 @@ export class EventoDetailPage implements OnInit {
   borrarEvento(){
     this.obtenerEvento.deleteEvento(this.clave)
       .subscribe(resData => this.claves = resData);
+      this.navCtrl.pop();
   }
 
   ionViewDidLoad() {

@@ -25,8 +25,17 @@ export class KaraokePage implements OnInit{
       .subscribe(inputField => this.searchService.searchArtists(inputField)
       .subscribe(result => {
         if(result.status === 400){return;}
-        else{ this.searchResults = result.artists.items; }
+        else{ this.searchResults = result.tracks.items; }
       }));
+  }
+
+  agregarCancion(nombre:string,album:string,artista:string,duracion:Number,imagen:string){
+    console.log(nombre);
+    console.log(album);
+    console.log(artista);
+    console.log(duracion);
+    console.log(imagen);
+    this.searchService.postCancion(nombre,album,artista,duracion,imagen);
   }
 
 }

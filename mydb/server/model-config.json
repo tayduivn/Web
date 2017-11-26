@@ -20,5 +20,9 @@
   "Pedido": {
     "dataSource": "mongodb_conn",
     "public": true
+  },
+  "Cancion": {
+    "dataSource": "mongodb_conn",
+    "public": true
   }
 }

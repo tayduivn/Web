@@ -37,6 +37,11 @@ export class EventoPage {
   	this.navCtrl.push(NuevoEventoPage);
   }
 
+  ionViewDidLeave(){
+    this.obtenerEventos.getData()
+      .subscribe(resData => this.eventos = resData);
+  }
+
   detalle(id: string){
     let data = {
       identificador: id
@@ -68,6 +73,10 @@ export class EventoPage {
         }).present();
       }
     });
+
+    this.obtenerEventos.getData()
+      .subscribe(resData => this.eventos = resData);
+
   }
 
 }

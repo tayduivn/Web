@@ -1,0 +1,33 @@
+{
+  "name": "Cancion",
+  "plural": "Canciones",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "album": {
+      "type": "string",
+      "required": true
+    },
+    "artista": {
+      "type": "string",
+      "required": true
+    },
+    "duracion": {
+      "type": "number"
+    },
+    "imagen": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

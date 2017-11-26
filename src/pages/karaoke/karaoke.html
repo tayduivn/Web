@@ -8,7 +8,7 @@
 
 <ion-content>
   <section>
-    <h1>Busca tu artista favorito</h1>
+    <h1>Busca tu cancion favorita</h1>
     <div>
       <ion-icon name="search"></ion-icon>
 
@@ -16,7 +16,7 @@
       BUscador de Spotify
       -->
       <input [formControl] = "inputField" type="text" id="buscarcancion"
-        placeholder="Busca un artista..." autofocus>
+        placeholder="Busca una cancion..." autofocus>
     </div>
 
     <div id="listadeartistas">
@@ -27,10 +27,16 @@
         -->
         <div *ngFor="let item of searchResults">
           <li>
-            <input type="checkbox" value="None">
-            <img src="{{ item.images['2']?.url }}" alt="{{ item.name }}"
+            
+            <img src="{{ item.album.images['2']?.url }}" alt="{{ item.name }}"
               width="150" height="150">
-            <p id="nombredelartista">{{ item.name }}</p>
+            <p id="nombredelartista">Nombre:{{ item.name }}</p>
+            <p id="nombredelartista">Album: {{ item.album.name }}</p>
+            <p id="nombredelartista">Artista: {{ item.album.artists['0']?.name }}</p>
+            <button ion-button (click)="agregarCancion(item.name,item.album.name,item.album.artists['0']?.name,
+              item.duration_ms,item.album.images['2']?.url);">
+          		Agregar Canción
+          	</button>
           </li>
         </div>
       </ul>

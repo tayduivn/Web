@@ -31,6 +31,16 @@ export class OrdenPage {
   	this.navCtrl.push(BarPage);
   }
 
+  ionViewDidLeave(){
+    this.listaOrdenes.getData()
+      .subscribe(resData => this.ordenes = resData);
+  }
+
+  ionViewWillLoad(){
+    this.listaOrdenes.getData()
+      .subscribe(resData => this.ordenes = resData);
+  }
+
   itemSelected(item: string){
   	console.log("Selected Item", item);
   }
