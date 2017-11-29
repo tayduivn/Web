@@ -19,6 +19,7 @@ import { OrdenPage } from '../pages/orden/orden';
 import { EventoDetailPage } from '../pages/eventodetail/eventodetail';
 import { OrdenDetailPage } from '../pages/ordendetail/ordendetail';
 import { PlaylistPage } from '../pages/playlist/playlist';
+import { PlaylistDetallePage } from '../pages/playlistdetalle/playlistdetalle';
 
 //Servicios
 import { ListaOrdenesService } from './services/listaOrdenes';
@@ -48,7 +49,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     OrdenPage,
     EventoDetailPage,
     OrdenDetailPage,
-    PlaylistPage
+    PlaylistPage,
+    PlaylistDetallePage
   ],
   imports: [
     BrowserModule,
@@ -70,7 +72,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     OrdenPage,
     EventoDetailPage,
     OrdenDetailPage,
-    PlaylistPage
+    PlaylistPage,
+    PlaylistDetallePage
   ],
   providers: [
     StatusBar,

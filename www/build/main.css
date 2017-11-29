@@ -33516,6 +33516,10 @@ table td.r, table th.r {
   text-align: center;
 }
 
+.cuadro:hover {
+  background-color: #606060;
+}
+
 body {
   cursor: url("http://ionicframework.com/img/finger.png"), auto;
 }

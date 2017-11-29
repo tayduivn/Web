@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Mi Playlist</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="bg-style">
+  <h1 class="titulo">Información</h1>
+
+      <h1>Nombre de la cancion: {{ datos.nombre }}</h1>
+      <h2>Nombre del Album: {{ datos.album }}</h2>
+      <h2>Nombre del artista: {{ datos.artista }}</h2>
+      <h2>Duración de la canción: {{ datos.duracion }}</h2>
+
+
+        <button ion-button (click)="borrarCancion();">
+      		Borrar Canción
+      	</button>
+
+</ion-content>

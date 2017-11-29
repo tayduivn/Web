@@ -1,5 +1,5 @@
 module.exports = function(app) {
-  app.dataSources.mongodb_conn.automigrate('Evento', function(err) {
+  /*app.dataSources.mongodb_conn.automigrate('Evento', function(err) {
     if (err) throw err;
 
     app.models.Evento.create([{
@@ -18,5 +18,5 @@ module.exports = function(app) {
 
       console.log('Models created: \n', evento);
     });
-  });
+  });*/
 }

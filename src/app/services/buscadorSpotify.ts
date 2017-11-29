@@ -18,7 +18,7 @@ export class BuscadorSpotifyService {
     /* Creamos los headers que se requieren para poder hacer la autenticación
     */
     let headers = new Headers();
-    headers.append( 'authorization', 'Bearer BQAkTT8xqYSvtlhsuB-sB9JRnocYaOB_PJJsM7D_ZMYu3W1WwNpGeIDlsGZ_H6eoGEFCKvxxsz33KWMsqjQ');
+    headers.append( 'authorization', 'Bearer BQBrlOwvcFWrXslnzSjetkcaTtZns6HwDJ9zuO_4eEkz_E1hCU1qo0AAWNfBhLpkb4rivYTM211T9EpiP1M');
 
     /*COnstruimos la url completa con base en la búsqueda del usuario*/
     let url = this.artistUrl + searchTerm;
@@ -53,6 +53,20 @@ export class BuscadorSpotifyService {
 
   getData(){
     return this.http.get("http://localhost:3000/api/Canciones")
+      .map((res: Response) => res.json());
+  }
+
+  getDetalle(id:string){
+    var url:string = "http://localhost:3000/api/Canciones/" + id;
+    return this.http.get(url)
+      .map((res: Response) => res.json());
+  }
+
+  deleteSeleccion(id:string){
+    let headers2 = new Headers();
+    headers2.append('Accept', 'application/json');
+    var url2:string = "http://localhost:3000/api/Canciones/" + id;
+    return this.http.delete(url2,{headers: headers2})
       .map((res: Response) => res.json());
   }
 
