@@ -55,6 +55,12 @@ export class EventoPage {
   	'Noche de Amigos'
   ];
 
+  doRefresh(refresher){
+    this.obtenerEventos.getData()
+      .subscribe(resData => this.eventos = resData);
+    refresher.complete();
+  };
+
   itemSelected(item: string){
   	console.log("Selected Item", item);
   }

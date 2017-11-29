@@ -6,6 +6,12 @@
 
 
 <ion-content padding>
+
+  <ion-refresher (ionRefresh)="doRefresh($event);">
+    <ion-refresher-content pullingText="Actualizar">
+    </ion-refresher-content>
+ </ion-refresher>
+
   <h1 class="titulo">Eventos Creados</h1>
 
   <!-- Iteramos a nuestra variable eventos para poner en una lista

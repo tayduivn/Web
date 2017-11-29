@@ -19,6 +19,12 @@ export class OrdenPage {
       .subscribe(resData => this.ordenes = resData);
   }
 
+  doRefresh(refresher){
+    this.listaOrdenes.getData()
+      .subscribe(resData => this.ordenes = resData);
+    refresher.complete();
+  };
+
   detalle(id: string){
     let data = {
       identificador: id

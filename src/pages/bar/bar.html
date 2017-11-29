@@ -18,7 +18,8 @@
         <li class="listadealimentositem">
           <p>{{item.nombre}}</p>
           <p>{{item.precio}} pesos</p>
-          <select type="text" formControlName="n{{i}}" [(ngModel)]="numPedido">
+          <select type="text" formControlName="n{{i}}" [(ngModel)]="item.valor">
+            <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>

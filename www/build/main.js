@@ -135,6 +135,13 @@ var EventoPage = (function () {
         };
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__eventodetail_eventodetail__["a" /* EventoDetailPage */], data);
     };
+    EventoPage.prototype.doRefresh = function (refresher) {
+        var _this = this;
+        this.obtenerEventos.getData()
+            .subscribe(function (resData) { return _this.eventos = resData; });
+        refresher.complete();
+    };
+    ;
     EventoPage.prototype.itemSelected = function (item) {
         console.log("Selected Item", item);
     };
@@ -162,13 +169,12 @@ var EventoPage = (function () {
 EventoPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-evento',template:/*ion-inline-start:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/evento/evento.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Eventos</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <h1 class="titulo">Eventos Creados</h1>\n\n  <!-- Iteramos a nuestra variable eventos para poner en una lista\n  el nombre de los eventos creados -->\n  <div id="listadeeventos">\n    <ol>\n      <div *ngFor="let item of eventos">\n        <li (click)="detalle(item.id);">\n          <a href="#">{{ item.nombre }}</a>\n        </li>\n      </div>\n    </ol>\n  </div>\n\n\n  <!--\n  <ion-list inset>\n  	<button ion-item *ngFor="let item of items" (click)="itemSelected(item)">\n  		{{ item }}\n  	</button>\n  </ion-list>\n-->\n\n  <button ion-button full (click)="nextPage();">Nuevo Evento</button>\n</ion-content>\n'/*ion-inline-end:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/evento/evento.html"*/,
+        selector: 'page-evento',template:/*ion-inline-start:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/evento/evento.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Eventos</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-refresher (ionRefresh)="doRefresh($event);">\n    <ion-refresher-content pullingText="Actualizar">\n    </ion-refresher-content>\n </ion-refresher>\n\n  <h1 class="titulo">Eventos Creados</h1>\n\n  <!-- Iteramos a nuestra variable eventos para poner en una lista\n  el nombre de los eventos creados -->\n  <div id="listadeeventos">\n    <ol>\n      <div *ngFor="let item of eventos">\n        <li (click)="detalle(item.id);">\n          <a href="#">{{ item.nombre }}</a>\n        </li>\n      </div>\n    </ol>\n  </div>\n\n\n  <!--\n  <ion-list inset>\n  	<button ion-item *ngFor="let item of items" (click)="itemSelected(item)">\n  		{{ item }}\n  	</button>\n  </ion-list>\n-->\n\n  <button ion-button full (click)="nextPage();">Nuevo Evento</button>\n</ion-content>\n'/*ion-inline-end:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/evento/evento.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_3__app_services_mostrarEventos__["a" /* MostrarEventosService */], __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__["a" /* AngularFireAuth */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__app_services_mostrarEventos__["a" /* MostrarEventosService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_services_mostrarEventos__["a" /* MostrarEventosService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]) === "function" && _e || Object])
 ], EventoPage);
 
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=evento.js.map
 
 /***/ }),
@@ -350,6 +356,13 @@ var OrdenPage = (function () {
         this.listaOrdenes.getData()
             .subscribe(function (resData) { return _this.ordenes = resData; });
     }
+    OrdenPage.prototype.doRefresh = function (refresher) {
+        var _this = this;
+        this.listaOrdenes.getData()
+            .subscribe(function (resData) { return _this.ordenes = resData; });
+        refresher.complete();
+    };
+    ;
     OrdenPage.prototype.detalle = function (id) {
         var data = {
             identificador: id
@@ -376,12 +389,12 @@ var OrdenPage = (function () {
 }());
 OrdenPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-orden',template:/*ion-inline-start:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/orden/orden.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Ordenes</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<!-- Iteramos a nuestra variable _listaOrdenes.ordenestotales para\nponer en una lista el nombre de las ordenes creadas -->\n<ion-content padding>\n  <h1 class="titulo">Comida pedida</h1>\n  <ion-list inset *ngFor="let item of ordenes">\n    <a href="#" (click)="detalle(item.id);" class="botonPersonalizado">Orden Solicitada: {{item.id}}</a>\n    </ion-list>\n<!--\n<button ion-item (click)="itemSelected(item)">\n</button>\n    <ul>\n    <li *ngFor="let orden of _listaOrdenes.ordenestotales">\n      {{orden.nombre}}\n    </li>\n  </ul>\n-->\n  <button ion-button full (click)="nextPage();">Nueva Orden</button>\n</ion-content>\n'/*ion-inline-end:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/orden/orden.html"*/
+        selector: 'page-orden',template:/*ion-inline-start:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/orden/orden.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Ordenes</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<!-- Iteramos a nuestra variable _listaOrdenes.ordenestotales para\nponer en una lista el nombre de las ordenes creadas -->\n<ion-content padding>\n\n  <ion-refresher (ionRefresh)="doRefresh($event);">\n    <ion-refresher-content pullingText="Actualizar">\n    </ion-refresher-content>\n </ion-refresher>\n\n  <h1 class="titulo">Comida pedida</h1>\n  <ion-list inset *ngFor="let item of ordenes">\n    <a href="#" (click)="detalle(item.id);" class="botonPersonalizado">Orden Solicitada: {{item.id}}</a>\n    </ion-list>\n<!--\n<button ion-item (click)="itemSelected(item)">\n</button>\n    <ul>\n    <li *ngFor="let orden of _listaOrdenes.ordenestotales">\n      {{orden.nombre}}\n    </li>\n  </ul>\n-->\n  <button ion-button full (click)="nextPage();">Nueva Orden</button>\n</ion-content>\n'/*ion-inline-end:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/orden/orden.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_3__app_services_listaOrdenes__["a" /* ListaOrdenesService */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__app_services_listaOrdenes__["a" /* ListaOrdenesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_services_listaOrdenes__["a" /* ListaOrdenesService */]) === "function" && _c || Object])
 ], OrdenPage);
 
+var _a, _b, _c;
 //# sourceMappingURL=orden.js.map
 
 /***/ }),
@@ -463,7 +476,7 @@ var BarPage = (function () {
 }());
 BarPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-bar',template:/*ion-inline-start:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/bar/bar.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Restaurante Bar\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n	<h1 class="titulo">Alimentos</h1>\n\n  <!-- Iteramos a nuestra variable alimentos para poner en una lista\n  el nombre y el precio de los alimentos del menú -->\n  <form [formGroup]="todo" (ngSubmit)="logForm()">\n    <ul class="listadealimentos">\n      <div *ngFor="let item of alimentos;let i = index">\n        <li class="listadealimentositem">\n          <p>{{item.nombre}}</p>\n          <p>{{item.precio}} pesos</p>\n          <select type="text" formControlName="n{{i}}" [(ngModel)]="numPedido">\n            <option value="1">1</option>\n            <option value="2">2</option>\n            <option value="3">3</option>\n            <option value="4">4</option>\n            <option value="5">5</option>\n            <option value="6">6</option>\n            <option value="7">7</option>\n            <option value="8">8</option>\n            <option value="9">9</option>\n            <option value="10">10</option>\n          </select>\n        </li>\n      </div>\n    </ul>\n    <button ion-button full type="submit" [disabled]="!todo.valid">Enviar Orden</button>\n\n  </form>\n  <!--\n	<ion-list>\n		<ion-item>\n	      <ion-label>Chilaquiles Verdes $70</ion-label>\n	      <ion-select [(ngModel)]="chil_ver">\n	        <ion-option value="1">1</ion-option>\n	        <ion-option value="2">2</ion-option>\n	        <ion-option value="3">3</ion-option>\n	        <ion-option value="4">4</ion-option>\n	        <ion-option value="5">5</ion-option>\n	        <ion-option value="6">6</ion-option>\n	        <ion-option value="7">7</ion-option>\n	        <ion-option value="8">8</ion-option>\n	        <ion-option value="9">9</ion-option>\n	        <ion-option value="10">10</ion-option>\n	      </ion-select>\n		</ion-item>\n	</ion-list>\n\n	<button ion-button full (click)="guardar();">Enviar Orden</button>\n-->\n\n</ion-content>\n'/*ion-inline-end:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/bar/bar.html"*/
+        selector: 'page-bar',template:/*ion-inline-start:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/bar/bar.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Restaurante Bar\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n	<h1 class="titulo">Alimentos</h1>\n\n  <!-- Iteramos a nuestra variable alimentos para poner en una lista\n  el nombre y el precio de los alimentos del menú -->\n  <form [formGroup]="todo" (ngSubmit)="logForm()">\n    <ul class="listadealimentos">\n      <div *ngFor="let item of alimentos;let i = index">\n        <li class="listadealimentositem">\n          <p>{{item.nombre}}</p>\n          <p>{{item.precio}} pesos</p>\n          <select type="text" formControlName="n{{i}}" [(ngModel)]="item.valor">\n            <option value="0">0</option>\n            <option value="1">1</option>\n            <option value="2">2</option>\n            <option value="3">3</option>\n            <option value="4">4</option>\n            <option value="5">5</option>\n            <option value="6">6</option>\n            <option value="7">7</option>\n            <option value="8">8</option>\n            <option value="9">9</option>\n            <option value="10">10</option>\n          </select>\n        </li>\n      </div>\n    </ul>\n    <button ion-button full type="submit" [disabled]="!todo.valid">Enviar Orden</button>\n\n  </form>\n  <!--\n	<ion-list>\n		<ion-item>\n	      <ion-label>Chilaquiles Verdes $70</ion-label>\n	      <ion-select [(ngModel)]="chil_ver">\n	        <ion-option value="1">1</ion-option>\n	        <ion-option value="2">2</ion-option>\n	        <ion-option value="3">3</ion-option>\n	        <ion-option value="4">4</ion-option>\n	        <ion-option value="5">5</ion-option>\n	        <ion-option value="6">6</ion-option>\n	        <ion-option value="7">7</ion-option>\n	        <ion-option value="8">8</ion-option>\n	        <ion-option value="9">9</ion-option>\n	        <ion-option value="10">10</ion-option>\n	      </ion-select>\n		</ion-item>\n	</ion-list>\n\n	<button ion-button full (click)="guardar();">Enviar Orden</button>\n-->\n\n</ion-content>\n'/*ion-inline-end:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/bar/bar.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
         __WEBPACK_IMPORTED_MODULE_2__app_services_preciosMenu__["a" /* PreciosMenuService */], __WEBPACK_IMPORTED_MODULE_3__app_services_listaOrdenes__["a" /* ListaOrdenesService */],

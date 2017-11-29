@@ -1,10 +1,10 @@
 [
-    {"nombre":"Chilaquiles Verdes","precio":70},
-    {"nombre":"Tacos Dorados","precio":67},
-    {"nombre":"Molletes","precio":55},
+    {"nombre":"Chilaquiles Verdes","precio":70,"valor":""},
+    {"nombre":"Tacos Dorados","precio":67,"valor":""},
+    {"nombre":"Molletes","precio":55,"valor":""},
     {"nombre":"Hamburguesa con Queso","precio":90},
-    {"nombre":"Coca - Cola","precio":27},
-    {"nombre":"Naranjada Mineral","precio":30},
-    {"nombre":"Botella de Agua","precio":25},
-    {"nombre":"Cerveza Indio","precio":45}
+    {"nombre":"Coca - Cola","precio":27,"valor":""},
+    {"nombre":"Naranjada Mineral","precio":30,"valor":""},
+    {"nombre":"Botella de Agua","precio":25,"valor":""},
+    {"nombre":"Cerveza Indio","precio":45,"valor":""}
 ]
