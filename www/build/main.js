@@ -29,11 +29,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var NuevoEventoPage = (function () {
-    function NuevoEventoPage(navCtrl, navParams, nuevoEvento, formBuilder) {
+    function NuevoEventoPage(navCtrl, navParams, nuevoEvento, formBuilder, toast) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.nuevoEvento = nuevoEvento;
         this.formBuilder = formBuilder;
+        this.toast = toast;
         this.todo = this.formBuilder.group({
             nombreDelEvento: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["g" /* Validators */].required],
             fechaDelEvento: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["g" /* Validators */].required],
@@ -48,6 +49,10 @@ var NuevoEventoPage = (function () {
         var hora = this.todo.value.horaDelEvento;
         var numero = this.todo.value.personasDelEvento;
         this.nuevoEvento.postEvento(nombre, fecha, hora, numero);
+        this.toast.create({
+            message: "Evento creado, " + nombre,
+            duration: 1500
+        }).present();
         this.navCtrl.pop();
     };
     NuevoEventoPage.prototype.ionViewDidLoad = function () {
@@ -60,10 +65,10 @@ NuevoEventoPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-nuevoevento',template:/*ion-inline-start:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/nuevoevento/nuevoevento.html"*/'<!--\n  Generated template for the EventoPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ nombreDelEvento | placeholder:\'Nuevo Evento\' }}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <form [formGroup]="todo" (ngSubmit)="logForm()">\n    <ion-item>\n      <ion-label>Nombre del Evento</ion-label>\n      <ion-input type="text" formControlName="nombreDelEvento" [(ngModel)]="nombreDelEvento"\n        name="nombreDelEvento"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Fecha del evento</ion-label>\n      <ion-datetime type="text" formControlName="fechaDelEvento" displayFormat="MM/DD/YYYY"\n        [(ngModel)]="myDate"></ion-datetime>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Hora del evento</ion-label>\n      <ion-input type="text" formControlName="horaDelEvento" [(ngModel)]="horaDelEvento"\n        name="horaDelEvento"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Número de personas invitadas</ion-label>\n      <ion-select type="text" formControlName="personasDelEvento" [(ngModel)]="numPersonas">\n        <ion-option value="1">1</ion-option>\n        <ion-option value="2">2</ion-option>\n        <ion-option value="3">3</ion-option>\n        <ion-option value="4">4</ion-option>\n        <ion-option value="5">5</ion-option>\n        <ion-option value="6">6</ion-option>\n        <ion-option value="7">7</ion-option>\n        <ion-option value="8">8</ion-option>\n        <ion-option value="9">9</ion-option>\n        <ion-option value="10">10</ion-option>\n        <ion-option value="11">11</ion-option>\n        <ion-option value="12">12</ion-option>\n        <ion-option value="13">13</ion-option>\n        <ion-option value="14">14</ion-option>\n        <ion-option value="15">15</ion-option>\n        <ion-option value="16">16</ion-option>\n        <ion-option value="17">17</ion-option>\n        <ion-option value="18">18</ion-option>\n        <ion-option value="19">19</ion-option>\n        <ion-option value="20">20</ion-option>\n      </ion-select>\n    </ion-item>\n\n\n    <!--<button ion-button>\n    	<ion-icon name="logo-facebook"></ion-icon>\n    	Invitar amigos\n    </button>-->\n\n    <button ion-button full type="submit" [disabled]="!todo.valid">Crear Evento</button>\n  </form>\n\n</ion-content>\n'/*ion-inline-end:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/nuevoevento/nuevoevento.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_2__app_services_mostrarEventos__["a" /* MostrarEventosService */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__app_services_mostrarEventos__["a" /* MostrarEventosService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__app_services_mostrarEventos__["a" /* MostrarEventosService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]) === "function" && _e || Object])
 ], NuevoEventoPage);
 
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=nuevoevento.js.map
 
 /***/ }),
@@ -247,16 +252,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var EventoDetailPage = (function () {
-    function EventoDetailPage(navCtrl, navParams, obtenerEvento) {
+    function EventoDetailPage(navCtrl, navParams, obtenerEvento, toast) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.obtenerEvento = obtenerEvento;
+        this.toast = toast;
         this.evento = [];
         this.claves = [];
     }
     EventoDetailPage.prototype.ngOnInit = function () { };
     EventoDetailPage.prototype.borrarEvento = function () {
         var _this = this;
+        this.toast.create({
+            message: "Evento borrado",
+            duration: 1500
+        }).present();
         this.obtenerEvento.deleteEvento(this.clave)
             .subscribe(function (resData) { return _this.claves = resData; });
         this.navCtrl.pop();
@@ -274,10 +284,10 @@ EventoDetailPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-eventodetail',template:/*ion-inline-start:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/eventodetail/eventodetail.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Detalles del evento</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <h1 class="titulo">Información</h1>\n\n      <h1>Nombre del evento: {{ evento.nombre }}</h1>\n      <h2>Fecha: {{ evento.fecha }}</h2>\n      <h2>Hora: {{ evento.hora }}</h2>\n      <h2># Personas: {{ evento.numeropersonas }}</h2>\n\n\n        <button ion-button (click)="borrarEvento();">\n      		Borrar Evento\n      	</button>\n      \n</ion-content>\n'/*ion-inline-end:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/eventodetail/eventodetail.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_2__app_services_mostrarEventos__["a" /* MostrarEventosService */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__app_services_mostrarEventos__["a" /* MostrarEventosService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__app_services_mostrarEventos__["a" /* MostrarEventosService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]) === "function" && _d || Object])
 ], EventoDetailPage);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=eventodetail.js.map
 
 /***/ }),
@@ -425,13 +435,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var BarPage = (function () {
-    function BarPage(navCtrl, navParams, obtenerAlimentos, listaOrdenes, formBuilder) {
+    function BarPage(navCtrl, navParams, obtenerAlimentos, listaOrdenes, formBuilder, toast) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.obtenerAlimentos = obtenerAlimentos;
         this.listaOrdenes = listaOrdenes;
         this.formBuilder = formBuilder;
+        this.toast = toast;
         this.alimentos = [];
         /*Utiliza un servicio definido en src/app/servicio para obtener info
         de los alimentos*/
@@ -460,6 +471,10 @@ var BarPage = (function () {
         var num8 = this.todo.value.n7;
         var total = (num1 * 70) + (num2 * 67) + (num3 * 55) + (num4 * 90) +
             (num5 * 27) + (num6 * 30) + (num7 * 25) + (num8 * 45);
+        this.toast.create({
+            message: "Pedido recibido. En breve recibir\u00E1 su comida",
+            duration: 2500
+        }).present();
         this.listaOrdenes.postOrden(num1, num2, num3, num4, num5, num6, num7, num8, total);
         this.navCtrl.pop();
         /*var nombre:string = this.todo.value.nombreDelEvento;
@@ -481,11 +496,10 @@ BarPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-bar',template:/*ion-inline-start:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/bar/bar.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Restaurante Bar\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n	<h1 class="titulo">Alimentos</h1>\n\n  <!-- Iteramos a nuestra variable alimentos para poner en una lista\n  el nombre y el precio de los alimentos del menú -->\n  <form [formGroup]="todo" (ngSubmit)="logForm()">\n    <ul class="listadealimentos">\n      <div *ngFor="let item of alimentos;let i = index">\n        <li class="listadealimentositem">\n          <p>{{item.nombre}}</p>\n          <p>{{item.precio}} pesos</p>\n          <select type="text" formControlName="n{{i}}" [(ngModel)]="item.valor">\n            <option value="0">0</option>\n            <option value="1">1</option>\n            <option value="2">2</option>\n            <option value="3">3</option>\n            <option value="4">4</option>\n            <option value="5">5</option>\n            <option value="6">6</option>\n            <option value="7">7</option>\n            <option value="8">8</option>\n            <option value="9">9</option>\n            <option value="10">10</option>\n          </select>\n        </li>\n      </div>\n    </ul>\n    <button ion-button full type="submit" [disabled]="!todo.valid">Enviar Orden</button>\n\n  </form>\n  <!--\n	<ion-list>\n		<ion-item>\n	      <ion-label>Chilaquiles Verdes $70</ion-label>\n	      <ion-select [(ngModel)]="chil_ver">\n	        <ion-option value="1">1</ion-option>\n	        <ion-option value="2">2</ion-option>\n	        <ion-option value="3">3</ion-option>\n	        <ion-option value="4">4</ion-option>\n	        <ion-option value="5">5</ion-option>\n	        <ion-option value="6">6</ion-option>\n	        <ion-option value="7">7</ion-option>\n	        <ion-option value="8">8</ion-option>\n	        <ion-option value="9">9</ion-option>\n	        <ion-option value="10">10</ion-option>\n	      </ion-select>\n		</ion-item>\n	</ion-list>\n\n	<button ion-button full (click)="guardar();">Enviar Orden</button>\n-->\n\n</ion-content>\n'/*ion-inline-end:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/bar/bar.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_2__app_services_preciosMenu__["a" /* PreciosMenuService */], __WEBPACK_IMPORTED_MODULE_3__app_services_listaOrdenes__["a" /* ListaOrdenesService */],
-        __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__app_services_preciosMenu__["a" /* PreciosMenuService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__app_services_preciosMenu__["a" /* PreciosMenuService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__app_services_listaOrdenes__["a" /* ListaOrdenesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_services_listaOrdenes__["a" /* ListaOrdenesService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]) === "function" && _f || Object])
 ], BarPage);
 
+var _a, _b, _c, _d, _e, _f;
 //# sourceMappingURL=bar.js.map
 
 /***/ }),
@@ -611,9 +625,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var KaraokePage = (function () {
-    function KaraokePage(navCtrl, searchService) {
+    function KaraokePage(navCtrl, searchService, toast) {
         this.navCtrl = navCtrl;
         this.searchService = searchService;
+        this.toast = toast;
         this.inputField = new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* FormControl */]();
         this.searchResults = [];
     }
@@ -641,16 +656,21 @@ var KaraokePage = (function () {
         console.log(duracion);
         console.log(imagen);
         this.searchService.postCancion(nombre, album, artista, duracion, imagen);
+        this.toast.create({
+            message: "Canci\u00F3n agregada, " + nombre,
+            duration: 1500
+        }).present();
     };
     return KaraokePage;
 }());
 KaraokePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-karaoke',template:/*ion-inline-start:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/karaoke/karaoke.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Karaoke!!\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <section>\n    <h1>Busca tu cancion favorita</h1>\n    <div>\n      <ion-icon name="search"></ion-icon>\n\n      <!--\n      BUscador de Spotify\n      -->\n      <input [formControl] = "inputField" type="text" id="buscarcancion"\n        placeholder="Busca una cancion..." autofocus>\n    </div>\n\n    <div id="listadeartistas">\n      <ul>\n        <!--\n        Cada que encuentra resultados, muestra en una lista un checkbox,\n        la imagen y el nombre del artista\n        -->\n        <div *ngFor="let item of searchResults">\n          <li>\n            \n            <img src="{{ item.album.images[\'2\']?.url }}" alt="{{ item.name }}"\n              width="150" height="150">\n            <p id="nombredelartista">Nombre:{{ item.name }}</p>\n            <p id="nombredelartista">Album: {{ item.album.name }}</p>\n            <p id="nombredelartista">Artista: {{ item.album.artists[\'0\']?.name }}</p>\n            <button ion-button (click)="agregarCancion(item.name,item.album.name,item.album.artists[\'0\']?.name,\n              item.duration_ms,item.album.images[\'2\']?.url);">\n          		Agregar Canción\n          	</button>\n          </li>\n        </div>\n      </ul>\n    </div>\n\n\n    <a href="#" class="button" *ngIf="searchResults">Enviar Selección</a>\n  </section>\n</ion-content>\n<!--\n<ion-content>\n  <button ion-button full color="verde_spotify">\n  	<ion-icon name="ionic"></ion-icon>\n  	Conectarse a Spotify\n  </button>\n  <h1 class="titulo">Selecciona una lista</h1>\n  <ion-list>\n  	<ion-item>\n  		<ion-label>Selecciona PlayList</ion-label>\n  		<ion-select [(ngModel)]="plist">\n  			<ion-option value="p1">Baladas Románticas</ion-option>\n  			<ion-option value="p2">Today\'s Top Hits</ion-option>\n  			<ion-option value="p3">Éxitos MX</ion-option>\n  			<ion-option value="p4">Boleros Pop</ion-option>\n  			<ion-option value="p5">Rock en Español</ion-option>\n  		</ion-select>\n  	</ion-item>\n  </ion-list>\n  <h1 class="titulo">Selecciona tus canciones</h1>\n  <ion-list>\n	<ion-item>\n      <ion-label>Photograph - Ed Sheeran</ion-label>\n      <ion-checkbox color="primary"></ion-checkbox>\n	</ion-item>\n  	<ion-item>\n      <ion-label>You\'re Beautiful - James Blunt</ion-label>\n      <ion-checkbox color="dark"></ion-checkbox>\n	</ion-item>\n  	<ion-item>\n      <ion-label>Llegaste tú - Jesse y Joy</ion-label>\n      <ion-checkbox color="danger"></ion-checkbox>\n	</ion-item>\n  	<ion-item>\n      <ion-label>Te Regalo - Carla Morrison</ion-label>\n      <ion-checkbox color="royal"></ion-checkbox>\n	</ion-item>\n\n	<ion-item>\n      <ion-label>Moonlight - Ariana Grande</ion-label>\n      <ion-checkbox color="energized"></ion-checkbox>\n	</ion-item>\n  </ion-list>\n  <button ion-button round>Enviar Selección</button>\n</ion-content>\n-->\n'/*ion-inline-end:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/karaoke/karaoke.html"*/
+        selector: 'page-karaoke',template:/*ion-inline-start:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/karaoke/karaoke.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Karaoke!!\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <section>\n    <h1>Busca tu cancion favorita</h1>\n    <div>\n      <ion-icon name="search"></ion-icon>\n\n      <!--\n      BUscador de Spotify\n      -->\n      <input [formControl] = "inputField" type="text" id="buscarcancion"\n        placeholder="Busca una cancion..." autofocus>\n    </div>\n\n    <div id="listadeartistas">\n      <ul>\n        <!--\n        Cada que encuentra resultados, muestra en una lista un checkbox,\n        la imagen y el nombre del artista\n        -->\n        <div *ngFor="let item of searchResults">\n          <li>\n\n            <img src="{{ item.album.images[\'2\']?.url }}" alt="{{ item.name }}"\n              width="150" height="150">\n            <p id="nombredelartista">Nombre:{{ item.name }}</p>\n            <p id="nombredelartista">Album: {{ item.album.name }}</p>\n            <p id="nombredelartista">Artista: {{ item.album.artists[\'0\']?.name }}</p>\n            <button ion-button [disabled]="disabled" (click)="agregarCancion(item.name,item.album.name,item.album.artists[\'0\']?.name,\n              item.duration_ms,item.album.images[\'2\']?.url);">\n          		Agregar Canción\n          	</button>\n          </li>\n        </div>\n      </ul>\n    </div>\n\n\n    <a href="#" class="button" *ngIf="searchResults">Enviar Selección</a>\n  </section>\n</ion-content>\n<!--\n<ion-content>\n  <button ion-button full color="verde_spotify">\n  	<ion-icon name="ionic"></ion-icon>\n  	Conectarse a Spotify\n  </button>\n  <h1 class="titulo">Selecciona una lista</h1>\n  <ion-list>\n  	<ion-item>\n  		<ion-label>Selecciona PlayList</ion-label>\n  		<ion-select [(ngModel)]="plist">\n  			<ion-option value="p1">Baladas Románticas</ion-option>\n  			<ion-option value="p2">Today\'s Top Hits</ion-option>\n  			<ion-option value="p3">Éxitos MX</ion-option>\n  			<ion-option value="p4">Boleros Pop</ion-option>\n  			<ion-option value="p5">Rock en Español</ion-option>\n  		</ion-select>\n  	</ion-item>\n  </ion-list>\n  <h1 class="titulo">Selecciona tus canciones</h1>\n  <ion-list>\n	<ion-item>\n      <ion-label>Photograph - Ed Sheeran</ion-label>\n      <ion-checkbox color="primary"></ion-checkbox>\n	</ion-item>\n  	<ion-item>\n      <ion-label>You\'re Beautiful - James Blunt</ion-label>\n      <ion-checkbox color="dark"></ion-checkbox>\n	</ion-item>\n  	<ion-item>\n      <ion-label>Llegaste tú - Jesse y Joy</ion-label>\n      <ion-checkbox color="danger"></ion-checkbox>\n	</ion-item>\n  	<ion-item>\n      <ion-label>Te Regalo - Carla Morrison</ion-label>\n      <ion-checkbox color="royal"></ion-checkbox>\n	</ion-item>\n\n	<ion-item>\n      <ion-label>Moonlight - Ariana Grande</ion-label>\n      <ion-checkbox color="energized"></ion-checkbox>\n	</ion-item>\n  </ion-list>\n  <button ion-button round>Enviar Selección</button>\n</ion-content>\n-->\n'/*ion-inline-end:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/karaoke/karaoke.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__app_services_buscadorSpotify__["a" /* BuscadorSpotifyService */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__app_services_buscadorSpotify__["a" /* BuscadorSpotifyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__app_services_buscadorSpotify__["a" /* BuscadorSpotifyService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]) === "function" && _c || Object])
 ], KaraokePage);
 
+var _a, _b, _c;
 //# sourceMappingURL=karaoke.js.map
 
 /***/ }),
@@ -688,7 +708,7 @@ var BuscadorSpotifyService = (function () {
         /* Creamos los headers que se requieren para poder hacer la autenticación
         */
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
-        headers.append('authorization', 'Bearer BQBg-DePT_Es8cjI3e1LJHkZgej1Eyqq3hT9vjI5cjp7cZ-IFnygsEtfkUJCZDcSFfZxrY6i239dzblCB-3nnA');
+        headers.append('authorization', 'Bearer BQD8W_Ltr__FHOSqoRVeDQXrDjpXJ_0PU_hLiJj_UQplaJLJYPHWbzVW9vizTT_9wjJb4z5AFXKdsKPoQZk');
         /*COnstruimos la url completa con base en la búsqueda del usuario*/
         var url = this.artistUrl + searchTerm;
         /*Solicitamos con get un json con la url que construimos y
@@ -784,10 +804,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 var LoginPage = (function () {
-    function LoginPage(navCtrl, facebook, afAuth) {
+    function LoginPage(navCtrl, facebook, afAuth, toast) {
         this.navCtrl = navCtrl;
         this.facebook = facebook;
         this.afAuth = afAuth;
+        this.toast = toast;
         this.userData = null;
         this.user = {};
     }
@@ -805,6 +826,12 @@ var LoginPage = (function () {
                     catch (e) {
                         console.error(e);
                     }
+                }
+                else {
+                    this.toast.create({
+                        message: "Contrase\u00F1a incorrecta, intenta de nuevo",
+                        duration: 1500
+                    }).present();
                 }
                 return [2 /*return*/];
             });
@@ -830,10 +857,10 @@ LoginPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-login',template:/*ion-inline-start:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/login/login.html"*/'<div class="container">\n	<h1>Retromanía</h1>\n	<img src="https://vignette2.wikia.nocookie.net/clubpenguin/images/1/1c/Micr%C3%B3fono_icono.png/revision/latest?cb=20140705014018&path-prefix=es" alt="" width="230" height="230"><br><br><br><br>\n\n	<!-- Para lograr la conexión con facebook, al momento de darle al boton\n	entrar con facebook manda llamar al metodolo loginWithFacebook definido\n	en el login.ts -->\n	<div class="form-style-5">\n\n		<ion-input type="text" [(ngModel)]="user.email"></ion-input>\n		<ion-input type="password" [(ngModel)]="user.password"></ion-input>\n		<button ion-button (click)="login(user);">\n			Entrar\n		</button>\n	</div>\n\n\n	<button ion-button (click)="loginWithFacebook();">\n		<ion-icon name="logo-facebook"></ion-icon>\n		Entrar con Facebook\n	</button>\n<br><br>\n	<!-- Una vez que la conexión es creada, mostramos el nombre del\n	usuario -->\n	<ion-card *ngIf="userData">\n		<ion-card-header>Hola {{ userData.username }}</ion-card-header>\n	</ion-card>\n</div>\n'/*ion-inline-end:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/login/login.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_facebook__["a" /* Facebook */],
-        __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__["a" /* AngularFireAuth */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_facebook__["a" /* Facebook */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_facebook__["a" /* Facebook */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]) === "function" && _d || Object])
 ], LoginPage);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=login.js.map
 
 /***/ }),

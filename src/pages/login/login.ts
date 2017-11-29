@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ToastController } from 'ionic-angular';
 import { EventoPage } from '../evento/evento';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 import { User } from '../../app/models/user';
@@ -15,7 +15,7 @@ export class LoginPage {
   user = {} as User;
 
   constructor(public navCtrl: NavController, private facebook: Facebook,
-    private afAuth: AngularFireAuth) {
+    private afAuth: AngularFireAuth, private toast: ToastController) {
 
   }
 
@@ -30,6 +30,11 @@ export class LoginPage {
       catch(e){
         console.error(e);
       }
+    }else{
+      this.toast.create({
+        message: `Contraseña incorrecta, intenta de nuevo`,
+        duration: 1500
+      }).present();
     }
 
   	/*this.navCtrl.setRoot(EventoPage);*/

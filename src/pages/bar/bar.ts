@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { PreciosMenuService } from '../../app/services/preciosMenu';
 import { ListaOrdenesService } from '../../app/services/listaOrdenes';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
@@ -15,7 +15,7 @@ export class BarPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private obtenerAlimentos: PreciosMenuService, private listaOrdenes:ListaOrdenesService,
-    private formBuilder: FormBuilder) {
+    private formBuilder: FormBuilder, private toast: ToastController) {
 
       /*Utiliza un servicio definido en src/app/servicio para obtener info
       de los alimentos*/
@@ -46,6 +46,11 @@ export class BarPage {
     var num8:number = this.todo.value.n7;
     var total: number = (num1 * 70) + (num2 * 67) + (num3 * 55) + (num4 * 90) +
       (num5 * 27) + (num6 * 30) + (num7 * 25) + (num8 * 45);
+
+      this.toast.create({
+        message: `Pedido recibido. En breve recibirá su comida`,
+        duration: 2500
+      }).present();
 
     this.listaOrdenes.postOrden(num1,num2,num3,num4,num5,num6,num7,num8,total);
     this.navCtrl.pop();

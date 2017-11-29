@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { MostrarEventosService } from '../../app/services/mostrarEventos';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 
@@ -21,7 +21,8 @@ export class NuevoEventoPage {
   private todo : FormGroup;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private nuevoEvento:MostrarEventosService, private formBuilder: FormBuilder) {
+    private nuevoEvento:MostrarEventosService, private formBuilder: FormBuilder,
+      private toast: ToastController) {
       this.todo = this.formBuilder.group({
       nombreDelEvento: ['', Validators.required],
       fechaDelEvento: ['', Validators.required],
@@ -38,6 +39,10 @@ export class NuevoEventoPage {
     var numero:Number = this.todo.value.personasDelEvento;
 
     this.nuevoEvento.postEvento(nombre,fecha,hora,numero);
+    this.toast.create({
+      message: `Evento creado, ${nombre}`,
+      duration: 1500
+    }).present();
     this.navCtrl.pop();
 
   }

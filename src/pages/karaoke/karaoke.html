@@ -27,13 +27,13 @@
         -->
         <div *ngFor="let item of searchResults">
           <li>
-            
+
             <img src="{{ item.album.images['2']?.url }}" alt="{{ item.name }}"
               width="150" height="150">
             <p id="nombredelartista">Nombre:{{ item.name }}</p>
             <p id="nombredelartista">Album: {{ item.album.name }}</p>
             <p id="nombredelartista">Artista: {{ item.album.artists['0']?.name }}</p>
-            <button ion-button (click)="agregarCancion(item.name,item.album.name,item.album.artists['0']?.name,
+            <button ion-button [disabled]="disabled" (click)="agregarCancion(item.name,item.album.name,item.album.artists['0']?.name,
               item.duration_ms,item.album.images['2']?.url);">
           		Agregar Canción
           	</button>

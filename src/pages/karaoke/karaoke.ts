@@ -1,5 +1,5 @@
 import { Component , OnInit } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ToastController  } from 'ionic-angular';
 import { BuscadorSpotifyService } from '../../app/services/buscadorSpotify';
 import { FormControl } from '@angular/forms';
 
@@ -12,7 +12,8 @@ export class KaraokePage implements OnInit{
   inputField: FormControl = new FormControl();
   searchResults: any[] = [];
 
-  constructor(public navCtrl: NavController, private searchService: BuscadorSpotifyService) {
+  constructor(public navCtrl: NavController, private searchService: BuscadorSpotifyService,
+    private toast: ToastController) {
 
   }
 
@@ -36,6 +37,10 @@ export class KaraokePage implements OnInit{
     console.log(duracion);
     console.log(imagen);
     this.searchService.postCancion(nombre,album,artista,duracion,imagen);
+    this.toast.create({
+      message: `Canción agregada, ${nombre}`,
+      duration: 1500
+    }).present();
   }
 
 }
