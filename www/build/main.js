@@ -171,10 +171,11 @@ EventoPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-evento',template:/*ion-inline-start:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/evento/evento.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Eventos</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-refresher (ionRefresh)="doRefresh($event);">\n    <ion-refresher-content pullingText="Actualizar">\n    </ion-refresher-content>\n </ion-refresher>\n\n  <h1 class="titulo">Eventos Creados</h1>\n\n  <!-- Iteramos a nuestra variable eventos para poner en una lista\n  el nombre de los eventos creados -->\n  <div id="listadeeventos">\n    <ol>\n      <div *ngFor="let item of eventos">\n        <li (click)="detalle(item.id);">\n          <a href="#">{{ item.nombre }}</a>\n        </li>\n      </div>\n    </ol>\n  </div>\n\n\n  <!--\n  <ion-list inset>\n  	<button ion-item *ngFor="let item of items" (click)="itemSelected(item)">\n  		{{ item }}\n  	</button>\n  </ion-list>\n-->\n\n  <button ion-button full (click)="nextPage();">Nuevo Evento</button>\n</ion-content>\n'/*ion-inline-end:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/evento/evento.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__app_services_mostrarEventos__["a" /* MostrarEventosService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_services_mostrarEventos__["a" /* MostrarEventosService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_3__app_services_mostrarEventos__["a" /* MostrarEventosService */], __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__["a" /* AngularFireAuth */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]])
 ], EventoPage);
 
-var _a, _b, _c, _d, _e;
 //# sourceMappingURL=evento.js.map
 
 /***/ }),
@@ -389,12 +390,12 @@ var OrdenPage = (function () {
 }());
 OrdenPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-orden',template:/*ion-inline-start:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/orden/orden.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Ordenes</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<!-- Iteramos a nuestra variable _listaOrdenes.ordenestotales para\nponer en una lista el nombre de las ordenes creadas -->\n<ion-content padding>\n\n  <ion-refresher (ionRefresh)="doRefresh($event);">\n    <ion-refresher-content pullingText="Actualizar">\n    </ion-refresher-content>\n </ion-refresher>\n\n  <h1 class="titulo">Comida pedida</h1>\n  <ion-list inset *ngFor="let item of ordenes">\n    <a href="#" (click)="detalle(item.id);" class="botonPersonalizado">Orden Solicitada: {{item.id}}</a>\n    </ion-list>\n<!--\n<button ion-item (click)="itemSelected(item)">\n</button>\n    <ul>\n    <li *ngFor="let orden of _listaOrdenes.ordenestotales">\n      {{orden.nombre}}\n    </li>\n  </ul>\n-->\n  <button ion-button full (click)="nextPage();">Nueva Orden</button>\n</ion-content>\n'/*ion-inline-end:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/orden/orden.html"*/
+        selector: 'page-orden',template:/*ion-inline-start:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/orden/orden.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Ordenes</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<!-- Iteramos a nuestra variable _listaOrdenes.ordenestotales para\nponer en una lista el nombre de las ordenes creadas -->\n<ion-content padding>\n\n  <ion-refresher (ionRefresh)="doRefresh($event);">\n    <ion-refresher-content pullingText="Actualizar">\n    </ion-refresher-content>\n </ion-refresher>\n\n  <h1 class="titulo">Comida pedida</h1>\n  <ion-list inset *ngFor="let item of ordenes">\n    <a href="#" (click)="detalle(item.id);" class="botonPersonalizado">Orden Solicita. Total a Pagar: ${{item.total}}</a>\n    </ion-list>\n<!--\n<button ion-item (click)="itemSelected(item)">\n</button>\n    <ul>\n    <li *ngFor="let orden of _listaOrdenes.ordenestotales">\n      {{orden.nombre}}\n    </li>\n  </ul>\n-->\n  <button ion-button full (click)="nextPage();">Nueva Orden</button>\n</ion-content>\n'/*ion-inline-end:"/home/alfredo/Documentos/AplicacionesWeb/ProjectUser/Web/src/pages/orden/orden.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__app_services_listaOrdenes__["a" /* ListaOrdenesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_services_listaOrdenes__["a" /* ListaOrdenesService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_3__app_services_listaOrdenes__["a" /* ListaOrdenesService */]])
 ], OrdenPage);
 
-var _a, _b, _c;
 //# sourceMappingURL=orden.js.map
 
 /***/ }),
@@ -457,7 +458,9 @@ var BarPage = (function () {
         var num6 = this.todo.value.n5;
         var num7 = this.todo.value.n6;
         var num8 = this.todo.value.n7;
-        this.listaOrdenes.postOrden(num1, num2, num3, num4, num5, num6, num7, num8);
+        var total = (num1 * 70) + (num2 * 67) + (num3 * 55) + (num4 * 90) +
+            (num5 * 27) + (num6 * 30) + (num7 * 25) + (num8 * 45);
+        this.listaOrdenes.postOrden(num1, num2, num3, num4, num5, num6, num7, num8, total);
         this.navCtrl.pop();
         /*var nombre:string = this.todo.value.nombreDelEvento;
         var fecha:Date = this.todo.value.fechaDelEvento;
@@ -1177,7 +1180,7 @@ var ListaOrdenesService = (function () {
         return this.http.get(url)
             .map(function (res) { return res.json(); });
     };
-    ListaOrdenesService.prototype.postOrden = function (n1, n2, n3, n4, n5, n6, n7, n8) {
+    ListaOrdenesService.prototype.postOrden = function (n1, n2, n3, n4, n5, n6, n7, n8, precio) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Accept', 'application/json');
         headers.append('Content-Type', 'application/json');
@@ -1190,6 +1193,7 @@ var ListaOrdenesService = (function () {
             "numnaranjada": n6,
             "numagua": n7,
             "numcerveza": n8,
+            "total": precio,
         };
         this.http.post('http://localhost:3000/api/Pedidos', JSON.stringify(parametros), { headers: headers })
             .map(function (res) { return res.json(); })

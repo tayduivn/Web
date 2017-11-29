@@ -46,6 +46,11 @@
       "type": "number",
       "required": true,
       "default": 0
+    },
+    "total": {
+      "type": "number",
+      "required": false,
+      "default": 0
     }
   },
   "validations": [],

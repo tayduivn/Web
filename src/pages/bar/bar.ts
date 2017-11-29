@@ -44,8 +44,10 @@ export class BarPage {
     var num6:number = this.todo.value.n5;
     var num7:number = this.todo.value.n6;
     var num8:number = this.todo.value.n7;
+    var total: number = (num1 * 70) + (num2 * 67) + (num3 * 55) + (num4 * 90) +
+      (num5 * 27) + (num6 * 30) + (num7 * 25) + (num8 * 45);
 
-    this.listaOrdenes.postOrden(num1,num2,num3,num4,num5,num6,num7,num8);
+    this.listaOrdenes.postOrden(num1,num2,num3,num4,num5,num6,num7,num8,total);
     this.navCtrl.pop();
 
     /*var nombre:string = this.todo.value.nombreDelEvento;

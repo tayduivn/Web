@@ -18,7 +18,7 @@ export class ListaOrdenesService {
       .map((res: Response) => res.json());
   }
 
-  postOrden(n1:Number,n2:Number,n3:Number,n4:Number,n5:Number,n6:Number,n7:Number,n8:Number,){
+  postOrden(n1:Number,n2:Number,n3:Number,n4:Number,n5:Number,n6:Number,n7:Number,n8:Number,precio:Number){
     let headers = new Headers();
     headers.append('Accept', 'application/json');
     headers.append('Content-Type','application/json');
@@ -32,6 +32,7 @@ export class ListaOrdenesService {
       "numnaranjada": n6,
       "numagua": n7,
       "numcerveza": n8,
+      "total": precio,
     };
 
     this.http.post('http://localhost:3000/api/Pedidos', JSON.stringify(parametros),{headers: headers})
