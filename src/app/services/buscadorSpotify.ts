@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 
@@ -18,7 +18,7 @@ export class BuscadorSpotifyService {
     /* Creamos los headers que se requieren para poder hacer la autenticación
     */
     let headers = new Headers();
-    headers.append( 'authorization', 'Bearer BQD8W_Ltr__FHOSqoRVeDQXrDjpXJ_0PU_hLiJj_UQplaJLJYPHWbzVW9vizTT_9wjJb4z5AFXKdsKPoQZk');
+    headers.append( 'authorization', 'Bearer BQAkTT8xqYSvtlhsuB-sB9JRnocYaOB_PJJsM7D_ZMYu3W1WwNpGeIDlsGZ_H6eoGEFCKvxxsz33KWMsqjQ');
 
     /*COnstruimos la url completa con base en la búsqueda del usuario*/
     let url = this.artistUrl + searchTerm;
@@ -50,5 +50,12 @@ export class BuscadorSpotifyService {
         console.log(data);
       })
   }
+
+  getData(){
+    return this.http.get("http://localhost:3000/api/Canciones")
+      .map((res: Response) => res.json());
+  }
+
+
 
 }

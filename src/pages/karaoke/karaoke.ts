@@ -2,6 +2,7 @@ import { Component , OnInit } from '@angular/core';
 import { NavController, ToastController  } from 'ionic-angular';
 import { BuscadorSpotifyService } from '../../app/services/buscadorSpotify';
 import { FormControl } from '@angular/forms';
+import { PlaylistPage } from '../playlist/playlist';
 
 @Component({
   selector: 'page-karaoke',
@@ -42,5 +43,9 @@ export class KaraokePage implements OnInit{
       duration: 1500
     }).present();
   }
+  mostrarCanciones(){
+    this.navCtrl.push(PlaylistPage);
+  }
+
 
 }

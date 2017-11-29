@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Mi Playlist</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="bg-style">
+  <h1 class="tituloPrincipal">Estas son tus canciones elegidas</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th><h1>Canción</h1></th>
+        <th><h1>Artista</h1></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of songs">
+        <th>{{item.nombre}}</th>
+        <th>{{item.artista}}</th>
+      </tr>
+    </tbody>
+  </table>
+</ion-content>

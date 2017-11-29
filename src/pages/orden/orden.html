@@ -6,14 +6,14 @@
 
 <!-- Iteramos a nuestra variable _listaOrdenes.ordenestotales para
 poner en una lista el nombre de las ordenes creadas -->
-<ion-content padding>
+<ion-content padding class="bg-style">
 
   <ion-refresher (ionRefresh)="doRefresh($event);">
     <ion-refresher-content pullingText="Actualizar">
     </ion-refresher-content>
  </ion-refresher>
 
-  <h1 class="titulo">Comida pedida</h1>
+  <h1 class="tituloPrincipal">Comida pedida</h1>
   <ion-list inset *ngFor="let item of ordenes">
     <a href="#" (click)="detalle(item.id);" class="botonPersonalizado">Orden Solicita. Total a Pagar: ${{item.total}}</a>
     </ion-list>

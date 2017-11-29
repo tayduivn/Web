@@ -33449,6 +33449,73 @@ section {
   background: #d2d9dd;
 }
 
+.bg-style {
+  /* For Safari 5.1 to 6.0 */
+  /* For Opera 11.1 to 12.0 */
+  /* For Firefox 3.6 to 15 */
+  background: -webkit-gradient(linear, left bottom, left top, from(#3c61b0), to(black));
+  background: linear-gradient(to top, #3c61b0, black);
+  /* Standard syntax (must be last) */
+}
+
+.tituloPrincipal {
+  color: pink;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+/* Estilos para la tabla */
+table {
+  border-spacing: 1;
+  border-collapse: collapse;
+  background: #7F7679;
+  border-radius: 6px;
+  overflow: hidden;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+table * {
+  position: relative;
+}
+
+table td, table th {
+  padding-left: 8px;
+}
+
+table thead tr {
+  height: 60px;
+  background: #24E711;
+  font-size: 16px;
+}
+
+table tbody tr {
+  height: 48px;
+  border-bottom: 1px solid #E3F1D5;
+}
+
+table tbody tr:last-child {
+  border: 0;
+}
+
+table td, table th {
+  text-align: left;
+}
+
+table td.l, table th.l {
+  text-align: right;
+}
+
+table td.c, table th.c {
+  text-align: center;
+}
+
+table td.r, table th.r {
+  text-align: center;
+}
+
 body {
   cursor: url("http://ionicframework.com/img/finger.png"), auto;
 }

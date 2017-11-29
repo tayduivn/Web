@@ -6,9 +6,9 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="bg-style">
   <section>
-    <h1>Busca tu cancion favorita</h1>
+    <h1 class="tituloPrincipal">Busca tu cancion favorita</h1>
     <div>
       <ion-icon name="search"></ion-icon>
 
@@ -43,7 +43,7 @@
     </div>
 
 
-    <a href="#" class="button" *ngIf="searchResults">Enviar Selección</a>
+    <a href="#" class="button" *ngIf="searchResults" (click)="mostrarCanciones();">Lista de Reproducción</a>
   </section>
 </ion-content>
 <!--
