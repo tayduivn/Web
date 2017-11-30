@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController } from 'ionic-angular';
+import { NavController, NavParams, ToastController, AlertController } from 'ionic-angular';
 import { PreciosMenuService } from '../../app/services/preciosMenu';
 import { ListaOrdenesService } from '../../app/services/listaOrdenes';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
@@ -15,7 +15,8 @@ export class BarPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private obtenerAlimentos: PreciosMenuService, private listaOrdenes:ListaOrdenesService,
-    private formBuilder: FormBuilder, private toast: ToastController) {
+    private formBuilder: FormBuilder, private toast: ToastController,
+    private alertCtrl: AlertController) {
 
       /*Utiliza un servicio definido en src/app/servicio para obtener info
       de los alimentos*/
@@ -47,13 +48,32 @@ export class BarPage {
     var total: number = (num1 * 70) + (num2 * 67) + (num3 * 55) + (num4 * 90) +
       (num5 * 27) + (num6 * 30) + (num7 * 25) + (num8 * 45);
 
-      this.toast.create({
-        message: `Pedido recibido. En breve recibirá su comida`,
-        duration: 2500
-      }).present();
+      let confirm = this.alertCtrl.create({
+        title: '¿Desea pedir estos alimentos?',
+        message: 'Una vez ordenado, no podrá modificar su orden',
+        buttons: [
+          {
+            text: "Cancelar",
+            handler:() => {
+              console.log('Cancelar');
+            }
+          },
+          {
+            text: "Aceptar",
+            handler:() => {
+              this.toast.create({
+                message: `Pedido recibido. En breve recibirá su comida`,
+                duration: 2500
+              }).present();
 
-    this.listaOrdenes.postOrden(num1,num2,num3,num4,num5,num6,num7,num8,total);
-    this.navCtrl.pop();
+              this.listaOrdenes.postOrden(num1,num2,num3,num4,num5,num6,num7,num8,total);
+              this.navCtrl.pop();
+            }
+          }
+        ]
+      });confirm.present();
+
+
 
     /*var nombre:string = this.todo.value.nombreDelEvento;
     var fecha:Date = this.todo.value.fechaDelEvento;

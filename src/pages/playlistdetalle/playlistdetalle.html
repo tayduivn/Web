@@ -7,12 +7,17 @@
 
 <ion-content padding class="bg-style">
   <h1 class="titulo">Información</h1>
-
-      <h1>Nombre de la cancion: {{ datos.nombre }}</h1>
-      <h2>Nombre del Album: {{ datos.album }}</h2>
-      <h2>Nombre del artista: {{ datos.artista }}</h2>
-      <h2>Duración de la canción: {{ datos.duracion }}</h2>
-
+  <ion-card>
+      <img src="{{datos.image}}"/>
+      <ion-card-content>
+        <ion-card-title>
+          {{datos.nombre}}
+          </ion-card-title>
+        <p>Album: {{datos.album}}</p>
+        <p>Cantante: {{datos.artista}}</p>
+        <p>Duración: {{datos.duracion}}ms</p>
+      </ion-card-content>
+    </ion-card>
 
         <button ion-button (click)="borrarCancion();">
       		Borrar Canción

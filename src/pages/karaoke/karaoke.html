@@ -34,7 +34,7 @@
             <p id="nombredelartista">Album: {{ item.album.name }}</p>
             <p id="nombredelartista">Artista: {{ item.album.artists['0']?.name }}</p>
             <button ion-button [disabled]="disabled" (click)="agregarCancion(item.name,item.album.name,item.album.artists['0']?.name,
-              item.duration_ms,item.album.images['2']?.url);">
+              item.duration_ms,item.album.images['0']?.url);">
           		Agregar Canción
           	</button>
           </li>

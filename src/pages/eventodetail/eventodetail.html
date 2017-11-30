@@ -6,16 +6,26 @@
 
 
 <ion-content padding class="bg-style">
-  <h1 class="titulo">Información</h1>
+  <h1 class="titulo">{{ evento.nombre }}</h1>
 
-      <h1>Nombre del evento: {{ evento.nombre }}</h1>
-      <h2>Fecha: {{ evento.fecha }}</h2>
-      <h2>Hora: {{ evento.hora }}</h2>
-      <h2># Personas: {{ evento.numeropersonas }}</h2>
+  <ion-card>
+    <img src="http://www.itesm.mx/wps/wcm/connect/aa1d298044271872835ed3ba7ed44504/2/photo.jpg?MOD=AJPERES&CACHEID=aa1d298044271872835ed3ba7ed44504/2">
 
+    <ion-item>
+      <ion-icon name="mic" item-start large></ion-icon>
+      <h2>Karaoke Retromanía</h2>
+      <p>Calle del Puente #222, Tlalpan</p>
+    </ion-item>
 
-        <button ion-button (click)="borrarEvento();">
-      		Borrar Evento
-      	</button>
+    <ion-item>
+      <span item-left>Fecha: {{evento.fecha}}</span>
+      <span item-left>Hora: {{evento.hora}}</span>
+      <span item-left># Personas: {{evento.numeropersonas}}</span>
+    </ion-item>
+  </ion-card>
+
+  <button ion-button (click)="borrarEvento();">
+  	Borrar Evento
+  </button>
 
 </ion-content>
