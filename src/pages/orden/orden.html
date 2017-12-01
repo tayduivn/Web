@@ -15,7 +15,7 @@ poner en una lista el nombre de las ordenes creadas -->
 
   <h1 class="tituloPrincipal">Comida pedida</h1>
   <ion-list inset *ngFor="let item of ordenes">
-    <a href="#" (click)="detalle(item.id);" class="botonPersonalizado">Orden Solicita. Total a Pagar: ${{item.total}}</a>
+    <a href="#" (click)="detalle(item.id);" class="botonPersonalizado">Orden a Pagar: ${{item.total}}</a>
     </ion-list>
 <!--
 <button ion-item (click)="itemSelected(item)">

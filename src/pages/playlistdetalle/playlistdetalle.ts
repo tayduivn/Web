@@ -19,7 +19,7 @@ export class PlaylistDetallePage {
 
   borrarCancion(){
     this.toast.create({
-      message: `Evento borrado`,
+      message: `Canción borrado`,
       duration: 1500
     }).present();
     this.searchService.deleteSeleccion(this.clave)
